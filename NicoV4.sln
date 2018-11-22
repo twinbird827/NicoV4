@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NicoV4", "NicoV4.csproj", "{CE32578E-2DDC-45F7-A82C-CB5DCAF70D93}"
+	ProjectSection(ProjectDependencies) = postProject
+		{12AB67DB-0B63-4EB2-8EFE-BD496A1B2CC6} = {12AB67DB-0B63-4EB2-8EFE-BD496A1B2CC6}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfUtilV2", "..\WpfUtilV2\WpfUtilV2.csproj", "{12AB67DB-0B63-4EB2-8EFE-BD496A1B2CC6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE32578E-2DDC-45F7-A82C-CB5DCAF70D93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE32578E-2DDC-45F7-A82C-CB5DCAF70D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE32578E-2DDC-45F7-A82C-CB5DCAF70D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE32578E-2DDC-45F7-A82C-CB5DCAF70D93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12AB67DB-0B63-4EB2-8EFE-BD496A1B2CC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12AB67DB-0B63-4EB2-8EFE-BD496A1B2CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12AB67DB-0B63-4EB2-8EFE-BD496A1B2CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12AB67DB-0B63-4EB2-8EFE-BD496A1B2CC6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2BA7B0F-E4EB-483F-900B-13390D89BA22}
+	EndGlobalSection
+EndGlobal
