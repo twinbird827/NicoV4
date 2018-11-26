@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NicoV4.Mvvm.Views.Main
+namespace NicoV4.Mvvm.Views
 {
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック

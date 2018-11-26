@@ -46,6 +46,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -67,7 +68,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Mvvm\Views\Main\MainWindow.xaml">
+    <Page Include="Mvvm\Views\ItemsControl\VideoItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mvvm\Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -75,16 +80,42 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Common\NicoDataConverter.cs" />
+    <Compile Include="Common\Variables.cs" />
     <Compile Include="Common\WpfUtil.cs" />
-    <Compile Include="Mvvm\Views\Main\MainWindow.xaml.cs">
+    <Compile Include="Mvvm\ComboItems\ComboboxItemModel.cs" />
+    <Compile Include="Mvvm\ComboItems\ComboRankCategoryModel.cs" />
+    <Compile Include="Mvvm\ComboItems\ComboRankPeriodModel.cs" />
+    <Compile Include="Mvvm\ComboItems\ComboRankTargetModel.cs" />
+    <Compile Include="Mvvm\ComboItems\ComboSortMylistModel.cs" />
+    <Compile Include="Mvvm\ComboItems\ComboSortVideoModel.cs" />
+    <Compile Include="Mvvm\ComboItems\ComboThumbSizeModel.cs" />
+    <Compile Include="Mvvm\Models\MylistStatusModel.cs" />
+    <Compile Include="Mvvm\Models\SearchVideoByMylistModel.cs" />
+    <Compile Include="Mvvm\Models\SearchVideoByRankingModel.cs" />
+    <Compile Include="Mvvm\Models\SearchVideoByTemporaryModel.cs" />
+    <Compile Include="Mvvm\Models\SearchVideoByWordModel.cs" />
+    <Compile Include="Mvvm\Models\SearchVideoModel.cs" />
+    <Compile Include="Mvvm\Models\SettingModel.cs" />
+    <Compile Include="Mvvm\Models\VideoModel.cs" />
+    <Compile Include="Mvvm\Models\VideoStatusModel.cs" />
+    <Compile Include="Mvvm\Views\ItemsControl\VideoItem.xaml.cs">
+      <DependentUpon>VideoItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mvvm\Views\ItemsControl\VideoItemViewModel.cs" />
+    <Compile Include="Mvvm\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mvvm\Views\Main\MainWindowViewModel.cs" />
-    <Compile Include="Mvvm\Views\Main\MenuItemType.cs" />
-    <Compile Include="Mvvm\Views\Main\WorkSpaceViewModel.cs" />
+    <Compile Include="Mvvm\Views\MainWindowViewModel.cs" />
+    <Compile Include="Mvvm\Views\MenuItemType.cs" />
+    <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByMylistViewModel.cs" />
+    <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByRankingViewModel.cs" />
+    <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByTemporaryViewModel.cs" />
+    <Compile Include="Mvvm\Views\WorkSpace\SettingViewModel.cs" />
+    <Compile Include="Mvvm\Views\WorkSpace\WorkSpaceViewModel.cs" />
     <Compile Include="Mvvm\Views\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -113,7 +144,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mvvm\Models\" />
+    <Folder Include="Nico\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WpfUtilV2\WpfUtilV2.csproj">

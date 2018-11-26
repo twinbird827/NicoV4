@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,319 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="F_HHMMSS" xml:space="preserve">
+    <value>hh\:mm\:ss</value>
+  </data>
+  <data name="F_YYMMDDHHMMSS" xml:space="preserve">
+    <value>yy/MM/dd HH:mm:ss</value>
+  </data>
+  <data name="F_YYYYMMDDHHMMSS" xml:space="preserve">
+    <value>yyyy/MM/dd HH:mm:ss</value>
+  </data>
+  <data name="L_ADD" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="L_ADD_CHILDREN" xml:space="preserve">
+    <value>Add Children</value>
+  </data>
+  <data name="L_ADD_MYLIST" xml:space="preserve">
+    <value>マイリスト追加</value>
+  </data>
+  <data name="L_CANCEL" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="L_CATEGORY_TAG" xml:space="preserve">
+    <value>カテゴリタグ</value>
+  </data>
+  <data name="L_COMMENT_COUNTER" xml:space="preserve">
+    <value>コメント</value>
+  </data>
+  <data name="L_COPYRIGHT" xml:space="preserve">
+    <value>著作権</value>
+  </data>
+  <data name="L_COPY_URL" xml:space="preserve">
+    <value>Urlをコピー</value>
+  </data>
+  <data name="L_DELETE" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="L_DESCRIPTION" xml:space="preserve">
+    <value>詳細</value>
+  </data>
+  <data name="L_DOWNLOAD" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
+  <data name="L_JUMP" xml:space="preserve">
+    <value>JUMP</value>
+  </data>
+  <data name="L_LENGTH_SECONDS" xml:space="preserve">
+    <value>再生時間</value>
+  </data>
+  <data name="L_LOGIN" xml:space="preserve">
+    <value>ログイン</value>
+  </data>
+  <data name="L_MAIL_ADDRESS" xml:space="preserve">
+    <value>メールアドレス</value>
+  </data>
+  <data name="L_MENU" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="L_MP3_CONVERT" xml:space="preserve">
+    <value>mp3へ変換</value>
+  </data>
+  <data name="L_MYLIST_COUNTER" xml:space="preserve">
+    <value>マイリスト</value>
+  </data>
+  <data name="L_NAME" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="L_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="L_PASSWORD" xml:space="preserve">
+    <value>パスワード</value>
+  </data>
+  <data name="L_REMOVE" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="L_RENAME" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="L_SEARCH" xml:space="preserve">
+    <value>検索</value>
+  </data>
+  <data name="L_SEARCH_TAG" xml:space="preserve">
+    <value>タグ検索</value>
+  </data>
+  <data name="L_SEARCH_WORD" xml:space="preserve">
+    <value>ワード検索</value>
+  </data>
+  <data name="L_SELECT_DIRECTORY" xml:space="preserve">
+    <value>フォルダ選択</value>
+  </data>
+  <data name="L_START_TIME" xml:space="preserve">
+    <value>登録日時</value>
+  </data>
+  <data name="L_STATUS" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
+  <data name="L_TEMPORARY_ADD" xml:space="preserve">
+    <value>とりあえずマイリストに追加</value>
+  </data>
+  <data name="L_TEMPORARY_DELETE" xml:space="preserve">
+    <value>とりあえずマイリストから削除</value>
+  </data>
+  <data name="L_THUMBNAIL" xml:space="preserve">
+    <value>サムネイル</value>
+  </data>
+  <data name="L_TITLE" xml:space="preserve">
+    <value>タイトル</value>
+  </data>
+  <data name="L_TITLE_LOGIN" xml:space="preserve">
+    <value>ログイン設定</value>
+  </data>
+  <data name="L_TITLE_VERSION" xml:space="preserve">
+    <value>バージョン情報</value>
+  </data>
+  <data name="L_UPDATEDATE" xml:space="preserve">
+    <value>更新日時</value>
+  </data>
+  <data name="L_USER_ID" xml:space="preserve">
+    <value>ユーザID</value>
+  </data>
+  <data name="L_USER_NAME" xml:space="preserve">
+    <value>ユーザ名</value>
+  </data>
+  <data name="L_VERSION" xml:space="preserve">
+    <value>バージョン</value>
+  </data>
+  <data name="L_VIEW_COUNTER" xml:space="preserve">
+    <value>再生数</value>
+  </data>
+  <data name="M_ADD_CHILDREN_DESCRIPTION" xml:space="preserve">
+    <value>追加するフォルダ名を入力してください。</value>
+  </data>
+  <data name="M_ADD_MYLIST" xml:space="preserve">
+    <value>追加するマイリストのUrlを入力してください。</value>
+  </data>
+  <data name="M_ADD_TEMPORARY" xml:space="preserve">
+    <value>追加したい動画のURLか "sm" から始まる動画IDを入力してください。</value>
+  </data>
+  <data name="M_MYLIST_SELECT_DIALOG_DESCRIPTION" xml:space="preserve">
+    <value>マイリストを追加するフォルダを選択してください。</value>
+  </data>
+  <data name="M_REMOVE_DESCRIPTION" xml:space="preserve">
+    <value>選択したフォルダを削除します。
+よろしいですか？</value>
+  </data>
+  <data name="M_RENAME_DESCRIPTION" xml:space="preserve">
+    <value>変更後の名前を入力してください。</value>
+  </data>
+  <data name="RANK_CATEGORY_ALL" xml:space="preserve">
+    <value>all</value>
+  </data>
+  <data name="RANK_CATEGORY_ANIMAL" xml:space="preserve">
+    <value>animal</value>
+  </data>
+  <data name="RANK_CATEGORY_ANIME" xml:space="preserve">
+    <value>anime</value>
+  </data>
+  <data name="RANK_CATEGORY_CHAT" xml:space="preserve">
+    <value>chat</value>
+  </data>
+  <data name="RANK_CATEGORY_COOKING" xml:space="preserve">
+    <value>cooking</value>
+  </data>
+  <data name="RANK_CATEGORY_DANCE" xml:space="preserve">
+    <value>dance</value>
+  </data>
+  <data name="RANK_CATEGORY_DIARY" xml:space="preserve">
+    <value>diary</value>
+  </data>
+  <data name="RANK_CATEGORY_ENT" xml:space="preserve">
+    <value>ent</value>
+  </data>
+  <data name="RANK_CATEGORY_GAME" xml:space="preserve">
+    <value>game</value>
+  </data>
+  <data name="RANK_CATEGORY_HISTORY" xml:space="preserve">
+    <value>history</value>
+  </data>
+  <data name="RANK_CATEGORY_LECTURE" xml:space="preserve">
+    <value>lecture</value>
+  </data>
+  <data name="RANK_CATEGORY_MUSIC" xml:space="preserve">
+    <value>music</value>
+  </data>
+  <data name="RANK_CATEGORY_NATURE" xml:space="preserve">
+    <value>nature</value>
+  </data>
+  <data name="RANK_CATEGORY_OTHER" xml:space="preserve">
+    <value>other</value>
+  </data>
+  <data name="RANK_CATEGORY_PLAY" xml:space="preserve">
+    <value>play</value>
+  </data>
+  <data name="RANK_CATEGORY_POLITICS" xml:space="preserve">
+    <value>politics</value>
+  </data>
+  <data name="RANK_CATEGORY_QUE" xml:space="preserve">
+    <value>que</value>
+  </data>
+  <data name="RANK_CATEGORY_R18" xml:space="preserve">
+    <value>r18</value>
+  </data>
+  <data name="RANK_CATEGORY_RADIO" xml:space="preserve">
+    <value>radio</value>
+  </data>
+  <data name="RANK_CATEGORY_SCIENCE" xml:space="preserve">
+    <value>science</value>
+  </data>
+  <data name="RANK_CATEGORY_SING" xml:space="preserve">
+    <value>sing</value>
+  </data>
+  <data name="RANK_CATEGORY_SPORT" xml:space="preserve">
+    <value>sport</value>
+  </data>
+  <data name="RANK_CATEGORY_TEST" xml:space="preserve">
+    <value>test</value>
+  </data>
+  <data name="RANK_CATEGORY_TW" xml:space="preserve">
+    <value>tw</value>
+  </data>
+  <data name="RANK_PERIOD_DAILY" xml:space="preserve">
+    <value>daily</value>
+  </data>
+  <data name="RANK_PERIOD_HOURLY" xml:space="preserve">
+    <value>hourly</value>
+  </data>
+  <data name="RANK_PERIOD_MONTHLY" xml:space="preserve">
+    <value>monthly</value>
+  </data>
+  <data name="RANK_PERIOD_TOTAL" xml:space="preserve">
+    <value>total</value>
+  </data>
+  <data name="RANK_PERIOD_WEEKLY" xml:space="preserve">
+    <value>weekly</value>
+  </data>
+  <data name="RANK_TARGET_FAV" xml:space="preserve">
+    <value>fav</value>
+  </data>
+  <data name="RANK_TARGET_MYLIST" xml:space="preserve">
+    <value>mylist</value>
+  </data>
+  <data name="RANK_TARGET_RES" xml:space="preserve">
+    <value>res</value>
+  </data>
+  <data name="RANK_TARGET_VIEW" xml:space="preserve">
+    <value>view</value>
+  </data>
+  <data name="SORT_COMMENT0" xml:space="preserve">
+    <value>コメントが新しい順</value>
+  </data>
+  <data name="SORT_COMMENT1" xml:space="preserve">
+    <value>コメントが古い順</value>
+  </data>
+  <data name="SORT_COMMENTRES0" xml:space="preserve">
+    <value>コメントが多い順</value>
+  </data>
+  <data name="SORT_COMMENTRES1" xml:space="preserve">
+    <value>コメントが少ない順</value>
+  </data>
+  <data name="SORT_LENGTH0" xml:space="preserve">
+    <value>再生時間が長い順</value>
+  </data>
+  <data name="SORT_LENGTH1" xml:space="preserve">
+    <value>再生時間が短い順</value>
+  </data>
+  <data name="SORT_MYCOMMENT0" xml:space="preserve">
+    <value>マイリストコメント昇順</value>
+  </data>
+  <data name="SORT_MYCOMMENT1" xml:space="preserve">
+    <value>マイリストコメント降順</value>
+  </data>
+  <data name="SORT_MYREG0" xml:space="preserve">
+    <value>登録が古い順</value>
+  </data>
+  <data name="SORT_MYREG1" xml:space="preserve">
+    <value>登録が新しい順</value>
+  </data>
+  <data name="SORT_MYREGRES0" xml:space="preserve">
+    <value>マイリスト登録が多い順</value>
+  </data>
+  <data name="SORT_MYREGRES1" xml:space="preserve">
+    <value>マイリスト登録が少ない順</value>
+  </data>
+  <data name="SORT_TITLE0" xml:space="preserve">
+    <value>タイトル昇順</value>
+  </data>
+  <data name="SORT_TITLE1" xml:space="preserve">
+    <value>タイトル降順</value>
+  </data>
+  <data name="SORT_UPLOAD0" xml:space="preserve">
+    <value>投稿が新しい順</value>
+  </data>
+  <data name="SORT_UPLOAD1" xml:space="preserve">
+    <value>投稿が古い順</value>
+  </data>
+  <data name="SORT_VIEWRES0" xml:space="preserve">
+    <value>再生数が多い順</value>
+  </data>
+  <data name="SORT_VIEWRES1" xml:space="preserve">
+    <value>再生数が少ない順</value>
+  </data>
+  <data name="THUMB_SIZE_L" xml:space="preserve">
+    <value>サムネ大</value>
+  </data>
+  <data name="THUMB_SIZE_M" xml:space="preserve">
+    <value>サムネ中</value>
+  </data>
+  <data name="THUMB_SIZE_S" xml:space="preserve">
+    <value>サムネ小</value>
+  </data>
 </root>
