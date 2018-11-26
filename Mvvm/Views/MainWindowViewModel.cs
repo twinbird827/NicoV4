@@ -1,5 +1,6 @@
 ﻿using MahApps.Metro.Controls.Dialogs;
 using NicoV4.Common;
+using NicoV4.Mvvm.Models;
 using NicoV4.Mvvm.Views.WorkSpace;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace NicoV4.Mvvm.Views
             Instance = this;
 
             // TODO 初期表示ﾜｰｸｽﾍﾟｰｽの設定
-            Current = null;
+            Current = new SearchVideoByRankingViewModel();
 
 
         }
@@ -103,5 +104,13 @@ namespace NicoV4.Mvvm.Views
             return DialogCoordinator.HideMetroDialogAsync(this, dialog, settings);
         }
 
+        protected override void OnDisposed()
+        {
+            VideoStatusModel.Instance.Dispose();
+            MylistStatusModel.Instance.Dispose();
+            SettingModel.Instance.Dispose();
+
+            base.OnDisposed();
+        }
     }
 }

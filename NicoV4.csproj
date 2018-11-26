@@ -46,6 +46,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -107,14 +108,28 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Mvvm\Views\WorkSpace\SearchVideoByRankingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mvvm\Views\WorkSpace\SettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mvvm\Views\MainWindowViewModel.cs" />
     <Compile Include="Mvvm\Views\MenuItemType.cs" />
     <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByMylistViewModel.cs" />
     <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByRankingViewModel.cs" />
+    <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByRankingWindow.xaml.cs">
+      <DependentUpon>SearchVideoByRankingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByTemporaryViewModel.cs" />
     <Compile Include="Mvvm\Views\WorkSpace\SettingViewModel.cs" />
+    <Compile Include="Mvvm\Views\WorkSpace\SettingWindow.xaml.cs">
+      <DependentUpon>SettingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Mvvm\Views\WorkSpace\WorkSpaceViewModel.cs" />
     <Compile Include="Mvvm\Views\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

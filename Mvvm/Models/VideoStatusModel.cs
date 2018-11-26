@@ -3,18 +3,21 @@ using StatefulModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using WpfUtilV2.Common;
 using WpfUtilV2.Mvvm;
 
 namespace NicoV4.Mvvm.Models
 {
+    [DataContract]
     public class VideoStatusModel : BindableBase
     {
-        public static VideoStatusModel Instance { get; private set; } = JsonConverter.Deserialize<VideoStatusModel>(Variables.VideoStatusPath);
+        public static VideoStatusModel Instance { get; private set; } = GetInstance();
 
-        private VideoStatusModel()
+        public VideoStatusModel()
         {
             NewVideos = new List<string>();
             SeeVideos = new List<string>();
@@ -27,26 +30,37 @@ namespace NicoV4.Mvvm.Models
         /// <summary>
         /// ｱｲﾃﾑ構成
         /// </summary>
+        [IgnoreDataMember]
         public ObservableSynchronizedCollection<VideoModel> Videos
         {
             get { return _Videos; }
             set { SetProperty(ref _Videos, value); }
         }
-        private ObservableSynchronizedCollection<VideoModel> _Videos = new ObservableSynchronizedCollection<VideoModel>();
+        private ObservableSynchronizedCollection<VideoModel> _Videos;
 
         /// <summary>
         /// NEWﾘｽﾄ
         /// </summary>
+        [DataMember]
         public List<string> NewVideos { get; set; }
 
         /// <summary>
         /// SEEﾘｽﾄ
         /// </summary>
+        [DataMember]
         public List<string> SeeVideos { get; set; }
 
         // ****************************************************************************************************
         // 公開ﾒｿｯﾄﾞ定義
         // ****************************************************************************************************
+
+        private static VideoStatusModel GetInstance()
+        {
+            var instance = JsonConverter.Deserialize<VideoStatusModel>(Variables.VideoStatusPath) ?? new VideoStatusModel();
+            instance._Videos = new ObservableSynchronizedCollection<VideoModel>();
+
+            return instance;
+        }
 
         public VideoModel GetVideo(string id)
         {

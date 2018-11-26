@@ -35,7 +35,6 @@ namespace NicoV4.Mvvm.Models
                 OnPropertyChanged();
             }
         }
-        private string _MylistUrl = null;
 
         /// <summary>
         /// ﾏｲﾘｽﾄId

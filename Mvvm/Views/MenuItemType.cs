@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NicoV4.Mvvm.Views.Main
+namespace NicoV4.Mvvm.Views
 {
     public enum MenuItemType
     {

@@ -3,20 +3,90 @@
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                      xmlns:local="clr-namespace:NicoV4.Mvvm.Views.Main"
+                      xmlns:local="clr-namespace:NicoV4.Mvvm.Views"
                       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
                       xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-                      xmlns:vm="clr-namespace:NicoV4.Mvvm.Views.Main"
+                      xmlns:ws="clr-namespace:NicoV4.Mvvm.Views.WorkSpace"
+                      xmlns:ic="clr-namespace:NicoV4.Mvvm.Views.ItemsControl"
+                      xmlns:be="clr-namespace:WpfUtilV2.Mvvm.Behaviors;assembly=WpfUtilV2"
+                      Dialog:DialogParticipation.Register="{Binding}"
+                      be:WindowClosedBehavior.ViewModel="{Binding}"
                       mc:Ignorable="d"
                       Title="MainWindow" Height="450" Width="800">
     <Controls:MetroWindow.DataContext>
-        <vm:MainWindowViewModel>
-            <vm:MainWindowViewModel.DialogCoordinator>
+        <local:MainWindowViewModel>
+            <local:MainWindowViewModel.DialogCoordinator>
                 <Dialog:DialogCoordinator />
-            </vm:MainWindowViewModel.DialogCoordinator>
-        </vm:MainWindowViewModel>
+            </local:MainWindowViewModel.DialogCoordinator>
+        </local:MainWindowViewModel>
     </Controls:MetroWindow.DataContext>
+
+    <Controls:MetroWindow.Resources>
+        <ResourceDictionary>
+
+            <DataTemplate DataType="{x:Type ic:VideoItemViewModel}">
+                <ic:VideoItem />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ws:SearchVideoByRankingViewModel}">
+                <ws:SearchVideoByRankingWindow />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ws:SettingViewModel}">
+                <ws:SettingWindow />
+            </DataTemplate>
+
+        </ResourceDictionary>
+
+    </Controls:MetroWindow.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0">
+
+            <StackPanel Orientation="Vertical">
+
+                <!-- 
+                <Button Content="FullMenu"
+                    Command="{Binding OnOpenFlyout}" />
+                -->
+
+                <Button Content="SearchByWord"
+                    Command="{Binding OnClickMenu}"
+                    CommandParameter="{x:Static local:MenuItemType.SearchByWord}" />
+
+                <Button Content="Ranking"
+                    Command="{Binding OnClickMenu}"
+                    CommandParameter="{x:Static local:MenuItemType.Ranking}" />
+
+                <Button Content="Temporary"
+                    Command="{Binding OnClickMenu}"
+                    CommandParameter="{x:Static local:MenuItemType.Temporary}" />
+
+                <Button Content="SearchByMylist"
+                    Command="{Binding OnClickMenu}"
+                    CommandParameter="{x:Static local:MenuItemType.SearchByMylist}" />
+
+                <Button Content="MylistOfMe"
+                    Command="{Binding OnClickMenu}"
+                    CommandParameter="{x:Static local:MenuItemType.MylistOfMe}" />
+
+                <Button Content="MylistOfOther"
+                    Command="{Binding OnClickMenu}"
+                    CommandParameter="{x:Static local:MenuItemType.MylistOfOther}" />
+
+                <Button Content="Setting"
+                    Command="{Binding OnClickMenu}"
+                    CommandParameter="{x:Static local:MenuItemType.Setting}" />
+
+            </StackPanel>
+
+        </Border>
+
+        <ContentControl Grid.Column="1"
+                        Content="{Binding Current}" />
     </Grid>
 </Controls:MetroWindow>

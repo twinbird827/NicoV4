@@ -13,7 +13,7 @@ namespace NicoV4.Mvvm.Models
 {
     public class SettingModel : BindableBase
     {
-        public static SettingModel Instance { get; private set; } = JsonConverter.Deserialize<SettingModel>(Variables.SettingPath);
+        public static SettingModel Instance { get; private set; } = JsonConverter.Deserialize<SettingModel>(Variables.SettingPath) ?? new SettingModel();
 
         /// <summary>
         /// ｼﾝｸﾞﾙﾄﾝﾊﾟﾀｰﾝ
@@ -62,7 +62,14 @@ namespace NicoV4.Mvvm.Models
         /// <returns>複合化したﾊﾟｽﾜｰﾄﾞ</returns>
         public string GetPassword()
         {
-            return Encrypter.DecryptString(Password, Variables.ApplicationId);
+            if (!string.IsNullOrWhiteSpace(Password))
+            {
+                return Encrypter.DecryptString(Password, Variables.ApplicationId);
+            }
+            else
+            {
+                return string.Empty;
+            }
         }
 
         /// <summary>

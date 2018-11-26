@@ -77,7 +77,7 @@ namespace NicoV4.Mvvm.Models
                 video.ViewCounter = NicoDataConverter.ToCounter(desc, "nico-info-total-view");
                 video.MylistCounter = NicoDataConverter.ToCounter(desc, "nico-info-total-res");
                 video.CommentCounter = NicoDataConverter.ToCounter(desc, "nico-info-total-mylist");
-                video.StartTime = DateTime.Parse(channel.Element("pubDate").Value);
+                video.StartTime = NicoDataConverter.ToDatetime(channel.Element("pubDate").Value);
                 video.ThumbnailUrl = (string)desc.Descendants("img").First().Attribute("src");
                 video.LengthSeconds = NicoDataConverter.ToLengthSeconds(lengthSecondsStr);
 

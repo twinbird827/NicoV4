@@ -5,8 +5,69 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NicoV4.Mvvm.Views.ItemsControl"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             x:Name="Root">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        
+        <Image Grid.Row="0"
+               Grid.Column="0"
+               Grid.RowSpan="2"
+               Source="{Binding Thumbnail}"
+               HorizontalAlignment="Left"
+               Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" 
+               Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
+        
+        <TextBlock Grid.Row="0"
+                   Grid.Column="1"
+                   TextWrapping="Wrap"
+                   Style="{StaticResource TextBlockL}"
+                   Text="{Binding Title}"
+                   HorizontalAlignment="Stretch"
+                   TextAlignment="Left" />
+
+        <Grid Grid.Row="1"
+              Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.Resources>
+                <Style x:Key="TextBlockS" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                    <Setter Property="Style" Value="{StaticResource TextBlockS}" />
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="TextAlignment" Value="Left" />
+                </Style>
+            </Grid.Resources>
+
+            <StackPanel Grid.Column="0"
+                    Orientation="Horizontal">
+
+                <TextBlock Text="{Binding LengthSeconds}" />
+
+                <TextBlock Text="再生：" />
+                <TextBlock Text="{Binding ViewCounter}" />
+
+                <TextBlock Text="マイリスト：" />
+                <TextBlock Text="{Binding MylistCounter}" />
+
+                <TextBlock Text="コメント：" />
+                <TextBlock Text="{Binding CommentCounter}" />
+
+                
+            </StackPanel>
+
+            <TextBlock Grid.Column="1" Text="{Binding StartTime}" />
+
+        </Grid>
+
     </Grid>
 </UserControl>
