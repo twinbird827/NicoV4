@@ -10,7 +10,7 @@
              mc:Ignorable="d">
 
     <UserControl.Resources>
-        <Style TargetType="Grid">
+        <Style TargetType="ListBoxItem">
             <Setter Property="behavior:ControlMouseDoubleClickBehavior.Command" Value="{Binding OnDoubleClick}" />
             <Setter Property="behavior:ControlKeyDownBehavior.Command" Value="{Binding OnKeyDown}" />
             <Setter Property="ContextMenu">
@@ -28,7 +28,7 @@
         </Style>
     </UserControl.Resources>
     
-    <Grid>
+    <Grid HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -37,7 +37,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
 
         <Image Grid.Row="0"
@@ -48,6 +47,30 @@
                Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" 
                Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
 
+        <Grid Grid.Row="2"
+              Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.Resources>
+
+                <converter:Long2TimeSpanConverter x:Key="long2TimeSpan" />
+
+            </Grid.Resources>
+
+            <TextBlock Grid.Column="0"
+                       Style="{StaticResource TextBlockS}"
+                       Text="{Binding Status}" />
+
+            <TextBlock Grid.Column="1"
+                       TextAlignment="Right"
+                       Text="{Binding LengthSeconds, Converter={StaticResource long2TimeSpan}}" />
+
+        </Grid>
+
+        <!--
         <StackPanel Grid.Row="0"
                     Grid.Column="1"
                     Orientation="Horizontal">
@@ -55,24 +78,32 @@
             <TextBlock Style="{StaticResource TextBlockS}"
                        Text="{Binding Status}" />
             
-            <TextBlock TextTrimming="WordEllipsis"
+            <TextBlock TextWrapping="WrapWithOverflow"
                        Style="{StaticResource TextBlockL}"
-                       Text="{Binding Description}"
+                       Text="{Binding Title}"
                        HorizontalAlignment="Stretch"
                        TextAlignment="Left" />
 
         </StackPanel>
+        -->
+        <TextBlock Grid.Row="0"
+                   Grid.Column="1" TextWrapping="Wrap"
+                       Style="{StaticResource TextBlockL}"
+                       Text="{Binding Title}"
+                       HorizontalAlignment="Stretch"
+                       TextAlignment="Left" />
 
         <TextBlock Grid.Row="1"
                    Grid.Column="1"
-                   TextTrimming="WordEllipsis"
+                   TextWrapping="Wrap"
                    Foreground="DarkGray"
                    Text="{Binding Description}"
                    HorizontalAlignment="Stretch"
                    TextAlignment="Left" />
 
         <Grid Grid.Row="2"
-              Grid.Column="1">
+              Grid.Column="1"
+              HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="auto" />
@@ -80,35 +111,30 @@
 
             <Grid.Resources>
                 
-                <Style x:Key="TextBlockS" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
-                    <Setter Property="Style" Value="{StaticResource TextBlockS}" />
+                <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockM}">
                     <Setter Property="HorizontalAlignment" Value="Stretch" />
-                    <Setter Property="TextAlignment" Value="Left" />
+                    <Setter Property="TextAlignment" Value="Right" />
                 </Style>
-                
-                <converter:Long2TimeSpanConverter x:Key="long2TimeSpan" />
 
             </Grid.Resources>
 
             <StackPanel Grid.Column="0"
                         Orientation="Horizontal">
 
-                <TextBlock Text="{Binding LengthSeconds, Converter={StaticResource long2TimeSpan}, StringFormat={}{HHHH:mm:ss}}" />
-
                 <TextBlock Text="再生：" />
-                <TextBlock Text="{Binding ViewCounter, StringFormat={}{12:N}}" />
+                <TextBlock Text="{Binding ViewCounter, StringFormat={}{0:N0}}" Width="60" />
 
                 <TextBlock Text="マイリスト：" />
-                <TextBlock Text="{Binding MylistCounter, StringFormat={}{12:N}}" />
+                <TextBlock Text="{Binding MylistCounter, StringFormat={}{0:N0}}" Width="60" />
 
                 <TextBlock Text="コメント：" />
-                <TextBlock Text="{Binding CommentCounter, StringFormat={}{12:N}}" />
+                <TextBlock Text="{Binding CommentCounter, StringFormat={}{0:N0}}" Width="60" />
 
                 
             </StackPanel>
 
             <TextBlock Grid.Column="1" 
-                       Text="{Binding StartTime, StringFormat={}{yy/MM/dd HH:mm:ss}}" 
+                       Text="{Binding StartTime, StringFormat={}{0:yy/MM/dd HH:mm:ss}}" 
                        Foreground="DarkRed"/>
 
         </Grid>

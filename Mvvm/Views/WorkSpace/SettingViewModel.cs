@@ -19,6 +19,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
             // ﾛｸﾞｲﾝ情報の初期値
             MailAddress = SettingModel.Instance.MailAddress;
             Password = SettingModel.Instance.GetPassword();
+            Browser = SettingModel.Instance.Browser;
 
             // なぜか Password が string.Empty だと上手くﾊﾞｲﾝﾃﾞｨﾝｸﾞできないので対処
             Password = string.IsNullOrEmpty(Password) ? null : Password;
@@ -51,6 +52,16 @@ namespace NicoV4.Mvvm.Views.WorkSpace
             set { SetProperty(ref _Password, value); }
         }
         private string _Password;
+
+        /// <summary>
+        /// ﾌﾞﾗｳｻﾞﾊﾟｽ
+        /// </summary>
+        public string Browser
+        {
+            get { return _Browser; }
+            set { SetProperty(ref _Browser, value); }
+        }
+        private string _Browser;
 
         /// <summary>
         /// ﾊﾞｰｼﾞｮﾝ
@@ -115,6 +126,26 @@ namespace NicoV4.Mvvm.Views.WorkSpace
             }
         }
         public ICommand _OnLogin;
+
+        /// <summary>
+        /// ﾛｸﾞｲﾝ処理
+        /// </summary>
+        public ICommand OnBrowserSetting
+        {
+            get
+            {
+                return _OnBrowserSetting = _OnBrowserSetting ?? new RelayCommand(
+                    _ =>
+                    {
+                        SettingModel.Instance.Browser = Browser;
+                    },
+                    _ => {
+                        return !string.IsNullOrWhiteSpace(Browser);
+                    });
+            }
+        }
+        public ICommand _OnBrowserSetting;
+
 
     }
 }

@@ -68,7 +68,7 @@ namespace NicoV4.Common
                     .Split(':')
                     .Select(s => long.Parse(s))
                     .Reverse()
-                    .Select(l => l * (60 ^ lengthSecondsIndex++))
+                    .Select(l => l * (long)Math.Pow(60, lengthSecondsIndex++))
                     .Sum();
             return lengthSeconds;
         }

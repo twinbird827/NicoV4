@@ -123,6 +123,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Mvvm\Views\WorkSpace\SearchVideoByMylistWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Mvvm\Views\WorkSpace\SearchVideoByRankingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -144,6 +148,9 @@
     <Compile Include="Mvvm\Views\MainWindowViewModel.cs" />
     <Compile Include="Mvvm\Views\MenuItemType.cs" />
     <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByMylistViewModel.cs" />
+    <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByMylistWindow.xaml.cs">
+      <DependentUpon>SearchVideoByMylistWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByRankingViewModel.cs" />
     <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByRankingWindow.xaml.cs">
       <DependentUpon>SearchVideoByRankingWindow.xaml</DependentUpon>
