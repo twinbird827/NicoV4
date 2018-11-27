@@ -1,33 +1,12 @@
-﻿<UserControl x:Class="NicoV4.Mvvm.Views.ItemsControl.VideoItem"
+﻿<UserControl x:Class="NicoV4.Mvvm.Views.ItemsControl.TemporaryVideoItem"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NicoV4.Mvvm.Views.ItemsControl"
              xmlns:converter="clr-namespace:NicoV4.Mvvm.Converters"
-             xmlns:behavior="clr-namespace:WpfUtilV2.Mvvm.Behaviors;assembly=WpfUtilV2"
-             xmlns:properties="clr-namespace:NicoV4.Properties"
-             mc:Ignorable="d">
-
-    <UserControl.Resources>
-        <Style TargetType="Grid">
-            <Setter Property="behavior:ControlMouseDoubleClickBehavior.Command" Value="{Binding OnDoubleClick}" />
-            <Setter Property="behavior:ControlKeyDownBehavior.Command" Value="{Binding OnKeyDown}" />
-            <Setter Property="ContextMenu">
-                <Setter.Value>
-                    <ContextMenu>
-                        <MenuItem Header="{x:Static properties:Resources.L_TEMPORARY_ADD}"
-                                          Command="{Binding OnTemporaryAdd}" />
-                        <MenuItem Header="{x:Static properties:Resources.L_TEMPORARY_DELETE}" 
-                                          Command="{Binding OnTemporaryDel}" />
-                        <MenuItem Header="{x:Static properties:Resources.L_DOWNLOAD}" 
-                                          Command="{Binding OnDownload}" />
-                    </ContextMenu>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Resources>
-    
+             mc:Ignorable="d" 
+             x:Name="Root">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -48,20 +27,13 @@
                Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" 
                Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
 
-        <StackPanel Grid.Row="0"
-                    Grid.Column="1"
-                    Orientation="Horizontal">
-
-            <TextBlock Style="{StaticResource TextBlockS}"
-                       Text="{Binding Status}" />
-            
-            <TextBlock TextTrimming="WordEllipsis"
-                       Style="{StaticResource TextBlockL}"
-                       Text="{Binding Description}"
-                       HorizontalAlignment="Stretch"
-                       TextAlignment="Left" />
-
-        </StackPanel>
+        <TextBlock Grid.Row="0"
+                   Grid.Column="1"
+                   TextTrimming="WordEllipsis"
+                   Style="{StaticResource TextBlockL}"
+                   Text="{Binding Title}"
+                   HorizontalAlignment="Stretch"
+                   TextAlignment="Left" />
 
         <TextBlock Grid.Row="1"
                    Grid.Column="1"
@@ -79,19 +51,19 @@
             </Grid.ColumnDefinitions>
 
             <Grid.Resources>
-                
+
                 <Style x:Key="TextBlockS" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
                     <Setter Property="Style" Value="{StaticResource TextBlockS}" />
                     <Setter Property="HorizontalAlignment" Value="Stretch" />
                     <Setter Property="TextAlignment" Value="Left" />
                 </Style>
-                
+
                 <converter:Long2TimeSpanConverter x:Key="long2TimeSpan" />
 
             </Grid.Resources>
 
             <StackPanel Grid.Column="0"
-                        Orientation="Horizontal">
+                    Orientation="Horizontal">
 
                 <TextBlock Text="{Binding LengthSeconds, Converter={StaticResource long2TimeSpan}, StringFormat={}{HHHH:mm:ss}}" />
 
@@ -104,7 +76,7 @@
                 <TextBlock Text="コメント：" />
                 <TextBlock Text="{Binding CommentCounter, StringFormat={}{12:N}}" />
 
-                
+
             </StackPanel>
 
             <TextBlock Grid.Column="1" 

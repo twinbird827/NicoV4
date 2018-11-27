@@ -14,9 +14,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
 {
     public class SettingViewModel : WorkSpaceViewModel
     {
-        public static SettingViewModel Instance { get; private set; } = new SettingViewModel();
-
-        private SettingViewModel()
+        public SettingViewModel()
         {
             // ﾛｸﾞｲﾝ情報の初期値
             MailAddress = SettingModel.Instance.MailAddress;

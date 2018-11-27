@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace NicoV4.Mvvm.Models
@@ -49,12 +50,37 @@ namespace NicoV4.Mvvm.Models
 
         public async Task AddVideo(string id)
         {
+            const string url = "http://www.nicovideo.jp/api/deflist/add?item_type=0&item_id={0}&description={1}&token={2}";
 
+            if (!Videos.Any(v => v == id))
+            {
+                // URLに追加
+                var txt = await GetStringAsync(string.Format(url, id, "", await GetToken()));
+
+                // 自身に追加
+                Videos.Insert(0, id);
+            }
         }
 
         public async Task DeleteVideo(string id)
         {
+            const string url = "http://www.nicovideo.jp/api/deflist/delete?id_list[0][]={0}&token={1}";
 
+            if (Videos.Any(v => v == id))
+            {
+                // URLに追加
+                var txt = await GetStringAsync(string.Format(url, id, await GetToken()));
+
+                // 自身に追加
+                Videos.Remove(id);
+            }
+        }
+
+        private async Task<string> GetToken()
+        {
+            const string url = "http://www.nicovideo.jp/my/top";
+            var txt = await GetStringAsync(url);
+            return Regex.Match(txt, "data-csrf-token=\"(?<token>[^\"]+)\"").Groups["token"].Value;
         }
     }
 }

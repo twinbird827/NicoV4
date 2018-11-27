@@ -69,7 +69,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Mvvm\Views\ItemsControl\TemporaryVideoItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Mvvm\Views\ItemsControl\VideoItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mvvm\Views\ItemsControl\VideoItems.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -91,6 +99,7 @@
     <Compile Include="Mvvm\ComboItems\ComboSortMylistModel.cs" />
     <Compile Include="Mvvm\ComboItems\ComboSortVideoModel.cs" />
     <Compile Include="Mvvm\ComboItems\ComboThumbSizeModel.cs" />
+    <Compile Include="Mvvm\Converters\Long2TimeSpanConverter.cs" />
     <Compile Include="Mvvm\Models\MylistStatusModel.cs" />
     <Compile Include="Mvvm\Models\SearchVideoByMylistModel.cs" />
     <Compile Include="Mvvm\Models\SearchVideoByRankingModel.cs" />
@@ -100,8 +109,14 @@
     <Compile Include="Mvvm\Models\SettingModel.cs" />
     <Compile Include="Mvvm\Models\VideoModel.cs" />
     <Compile Include="Mvvm\Models\VideoStatusModel.cs" />
+    <Compile Include="Mvvm\Views\ItemsControl\TemporaryVideoItem.xaml.cs">
+      <DependentUpon>TemporaryVideoItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Mvvm\Views\ItemsControl\VideoItem.xaml.cs">
       <DependentUpon>VideoItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mvvm\Views\ItemsControl\VideoItems.xaml.cs">
+      <DependentUpon>VideoItems.xaml</DependentUpon>
     </Compile>
     <Compile Include="Mvvm\Views\ItemsControl\VideoItemViewModel.cs" />
     <Compile Include="Mvvm\Views\MainWindow.xaml.cs">
@@ -109,6 +124,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Mvvm\Views\WorkSpace\SearchVideoByRankingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mvvm\Views\WorkSpace\SearchVideoByTemporaryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mvvm\Views\WorkSpace\SearchVideoByWordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,6 +149,13 @@
       <DependentUpon>SearchVideoByRankingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByTemporaryViewModel.cs" />
+    <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByTemporaryWindow.xaml.cs">
+      <DependentUpon>SearchVideoByTemporaryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByWordViewModel.cs" />
+    <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByWordWindow.xaml.cs">
+      <DependentUpon>SearchVideoByWordWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Mvvm\Views\WorkSpace\SettingViewModel.cs" />
     <Compile Include="Mvvm\Views\WorkSpace\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>

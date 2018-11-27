@@ -78,6 +78,26 @@ namespace NicoV4.Mvvm.Models
             return video;
         }
 
+        public string GetStatus(string id)
+        {
+            if (SeeVideos.Any(v => v == id))
+            {
+                return "SEE";
+            }
+            else if (NewVideos.Any(v => v == id))
+            {
+                return "NEW";
+            }
+            else if (SearchVideoByTemporaryModel.Instance.Videos.Any(v => v == id))
+            {
+                return "FAV";
+            }
+            else
+            {
+                return "   ";
+            }
+        }
+
         protected override void OnDisposed()
         {
             // ﾌﾟﾛﾊﾟﾃｨに設定された内容を外部ﾌｧｲﾙに保存します。

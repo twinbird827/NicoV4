@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using WpfUtilV2.Mvvm;
 
 namespace NicoV4.Mvvm.Views
 {
@@ -55,6 +57,50 @@ namespace NicoV4.Mvvm.Views
 
         // ****************************************************************************************************
         // ｺﾏﾝﾄﾞ定義
+        // ****************************************************************************************************
+
+        /// <summary>
+        /// ﾒﾆｭｰ処理
+        /// </summary>
+        public ICommand OnClickMenu
+        {
+            get
+            {
+                return _OnClickMenu = _OnClickMenu ?? new RelayCommand<MenuItemType>(
+                    t =>
+                    {
+                        switch (t)
+                        {
+                            case MenuItemType.MylistOfMe:
+                                Current = new SearchVideoByRankingViewModel();
+                                break;
+                            case MenuItemType.MylistOfOther:
+                                Current = new SearchVideoByRankingViewModel();
+                                break;
+                            case MenuItemType.Ranking:
+                                Current = new SearchVideoByRankingViewModel();
+                                break;
+                            case MenuItemType.SearchByMylist:
+                                Current = new SearchVideoByMylistViewModel();
+                                break;
+                            case MenuItemType.SearchByWord:
+                                Current = new SearchVideoByWordViewModel();
+                                break;
+                            case MenuItemType.Setting:
+                                Current = new SettingViewModel();
+                                break;
+                            case MenuItemType.Temporary:
+                                Current = new SearchVideoByTemporaryViewModel();
+                                break;
+                        }
+                    });
+            }
+        }
+        public ICommand _OnClickMenu;
+
+
+        // ****************************************************************************************************
+        // ﾒｿｯﾄﾞ定義
         // ****************************************************************************************************
 
         /// <summary>

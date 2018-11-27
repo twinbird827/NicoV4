@@ -5,7 +5,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using WpfUtilV2.Mvvm;
 using WpfUtilV2.Mvvm.CustomControls;
 
 namespace NicoV4.Mvvm.Views.ItemsControl
@@ -41,7 +43,15 @@ namespace NicoV4.Mvvm.Views.ItemsControl
 
         public VideoModel Source { get; private set; }
 
-        public bool IsSelected { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool IsSelected { get; set; }
+
+        /// <summary>
+        /// ｽﾃｰﾀｽ
+        /// </summary>
+        public string Status
+        {
+            get { return VideoStatusModel.Instance.GetStatus(VideoId); }
+        }
 
         /// <summary>
         /// 動画ID
@@ -49,7 +59,7 @@ namespace NicoV4.Mvvm.Views.ItemsControl
         public string VideoId
         {
             get { return _VideoId; }
-            set { SetProperty(ref _VideoId, value); }
+            set { if (SetProperty(ref _VideoId, value)) OnPropertyChanged(nameof(Status)); }
         }
         private string _VideoId = null;
 
@@ -259,5 +269,122 @@ namespace NicoV4.Mvvm.Views.ItemsControl
                     break;
             }
         }
+
+        /// <summary>
+        /// 項目ﾀﾞﾌﾞﾙｸﾘｯｸ時ｲﾍﾞﾝﾄ
+        /// </summary>
+        public ICommand OnDoubleClick
+        {
+            get
+            {
+                return _OnDoubleClick = _OnDoubleClick ?? new RelayCommand(
+                async _ =>
+                {
+                    // ﾌﾞﾗｳｻﾞ表示
+                    await Source.Open();
+
+                    // ｽﾃｰﾀｽを明示的に更新
+                    OnPropertyChanged(nameof(Status));
+                },
+                _ =>
+                {
+                    return true;
+                });
+            }
+        }
+        public ICommand _OnDoubleClick;
+
+        /// <summary>
+        /// 項目ｷｰ入力時ｲﾍﾞﾝﾄ
+        /// </summary>
+        public ICommand OnKeyDown
+        {
+            get
+            {
+                return _OnKeyDown = _OnKeyDown ?? new RelayCommand<KeyEventArgs>(
+                e =>
+                {
+                    // ﾀﾞﾌﾞﾙｸﾘｯｸと同じ処理
+                    OnDoubleClick.Execute(null);
+                },
+                e =>
+                {
+                    return e.Key == Key.Enter;
+                });
+            }
+        }
+        public ICommand _OnKeyDown;
+
+        /// <summary>
+        /// 項目をﾃﾝﾎﾟﾗﾘに追加する
+        /// </summary>
+        public ICommand OnTemporaryAdd
+        {
+            get
+            {
+                return _OnTemporaryAdd = _OnTemporaryAdd ?? new RelayCommand(
+                async e =>
+                {
+                    // ﾃﾝﾎﾟﾗﾘに追加
+                    await SearchVideoByTemporaryModel.Instance.AddVideo(Source.VideoId);
+
+                    // ｽﾃｰﾀｽを明示的に更新
+                    OnPropertyChanged(nameof(Status));
+                },
+                e =>
+                {
+                    return true;
+                });
+            }
+        }
+        public ICommand _OnTemporaryAdd;
+
+        /// <summary>
+        /// 項目をﾃﾝﾎﾟﾗﾘから削除する
+        /// </summary>
+        public ICommand OnTemporaryDel
+        {
+            get
+            {
+                return _OnTemporaryDel = _OnTemporaryDel ?? new RelayCommand(
+                async e =>
+                {
+                    // ﾃﾝﾎﾟﾗﾘから削除
+                    await SearchVideoByTemporaryModel.Instance.DeleteVideo(Source.VideoId);
+
+                    // ｽﾃｰﾀｽを明示的に更新
+                    OnPropertyChanged(nameof(Status));
+                },
+                e =>
+                {
+                    return true;
+                });
+            }
+        }
+        public ICommand _OnTemporaryDel;
+
+        /// <summary>
+        /// 動画をﾀﾞｳﾝﾛｰﾄﾞする。
+        /// </summary>
+        public ICommand OnDownload
+        {
+            get
+            {
+                return _OnDownload = _OnDownload ?? new RelayCommand(
+                _ =>
+                {
+                    //using (var ms = await Source.GetMovieStreamAsync())
+                    //{
+                    //    File.WriteAllBytes(@"C:\" + DateTime.Now.ToString("yyyyMMddhhmmssfff.bin"), ms.ToArray());
+                    //}
+                },
+                _ =>
+                {
+                    return true;
+                });
+            }
+        }
+        public ICommand _OnDownload;
+
     }
 }

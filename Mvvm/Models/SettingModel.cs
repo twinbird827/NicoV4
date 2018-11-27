@@ -20,7 +20,7 @@ namespace NicoV4.Mvvm.Models
         /// </summary>
         private SettingModel()
         {
-
+            Browser = @"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe";
         }
 
         // ****************************************************************************************************
@@ -46,6 +46,16 @@ namespace NicoV4.Mvvm.Models
             set { SetProperty(ref _Password, value); }
         }
         private string _Password;
+
+        /// <summary>
+        /// ﾌﾞﾗｳｻﾞ
+        /// </summary>
+        public string Browser
+        {
+            get { return _Browser; }
+            set { SetProperty(ref _Browser, value); }
+        }
+        private string _Browser;
 
         /// <summary>
         /// ﾛｸﾞｲﾝ時ｸｯｷｰｺﾝﾃﾅ

@@ -1,6 +1,7 @@
 ﻿using NicoV4.Common;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -203,5 +204,20 @@ namespace NicoV4.Mvvm.Models
         }
         private string _LastResBody = null;
 
+        public async Task Open()
+        {
+            await Task.Delay(1).ConfigureAwait(false);
+
+            Process.Start(SettingModel.Instance.Browser, VideoUrl);
+
+            //MainWindowViewModel.Instance.Current = new VideoDetail2ViewModel(this);
+
+            // SEEﾘｽﾄに追加
+            VideoStatusModel.Instance.SeeVideos.Add(VideoId);
+
+            // NEWﾘｽﾄから削除
+            VideoStatusModel.Instance.NewVideos.Remove(VideoId);
+
+        }
     }
 }
