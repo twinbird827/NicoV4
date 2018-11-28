@@ -2,9 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using WpfUtilV2.Mvvm;
@@ -226,6 +229,8 @@ namespace NicoV4.Mvvm.Models
             using (var handler = new HttpClientHandler())
             using (var client = new HttpClient(handler))
             {
+                client.Timeout = new TimeSpan(1, 0,0);
+
                 // ﾛｸﾞｲﾝｸｯｷｰ設定
                 handler.CookieContainer = await SettingModel.Instance.GetCookies();
 
@@ -235,7 +240,14 @@ namespace NicoV4.Mvvm.Models
                 // 動画URL全文を取得
                 var flvurl = await client.GetStringAsync("http://flapi.nicovideo.jp/api/getflv/" + VideoId);
 
+                flvurl = Uri.UnescapeDataString(flvurl);
+                flvurl = Regex.Match(flvurl, @"&url=.*").Value.Replace("&url=", "");
+
+                var bytes = await client.GetByteArrayAsync(flvurl);
+
                 ServiceFactory.MessageService.Debug(flvurl);
+
+                File.WriteAllBytes(path, bytes);
             }
         }
     }

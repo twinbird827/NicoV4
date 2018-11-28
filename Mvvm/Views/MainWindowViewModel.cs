@@ -5,6 +5,7 @@ using NicoV4.Mvvm.Views.Services;
 using NicoV4.Mvvm.Views.WorkSpace;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -44,7 +45,7 @@ namespace NicoV4.Mvvm.Views
             ServiceFactory.MessageService = new WpfMessageService();
 
             // ﾃﾝﾎﾟﾗﾘ数の監視ｲﾍﾞﾝﾄを追加
-            SearchVideoByTemporaryModel.Instance.PropertyChanged += SearchVideoByTemporaryModel_OnPropertyChanged;
+            SearchVideoByTemporaryModel.Instance.Videos.CollectionChanged+= SearchVideoByTemporaryModel_OnCollectionChanged;
 
             // ﾀｲﾏｰ起動
             Timer = new DispatcherTimer(DispatcherPriority.Normal, App.Current.Dispatcher);
@@ -245,12 +246,9 @@ namespace NicoV4.Mvvm.Views
             SettingModel.Instance.LastConfirmDatetime = DateTime.Now;
         }
 
-        private void SearchVideoByTemporaryModel_OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void SearchVideoByTemporaryModel_OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(SearchVideoByTemporaryModel.Instance.Videos))
-            {
-                TemporaryCount = SearchVideoByTemporaryModel.Instance.Videos.Count();
-            }
+            TemporaryCount = SearchVideoByTemporaryModel.Instance.Videos.Count();
         }
 
     }

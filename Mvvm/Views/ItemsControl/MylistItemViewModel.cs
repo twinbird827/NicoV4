@@ -21,7 +21,7 @@ namespace NicoV4.Mvvm.Views.ItemsControl
 
         }
 
-        public MylistItemViewModel(SearchVideoByMylistModel model)
+        public MylistItemViewModel(SearchVideoByMylistModel model) : base(model)
         {
             Source = model;
 

@@ -108,11 +108,12 @@ namespace NicoV4.Common
             }
             else
             {
-                return System.DateTime.ParseExact(value,
-                    "ddd, d MMM yyyy HH\\:mm\\:ss zzz",
-                    System.Globalization.DateTimeFormatInfo.InvariantInfo,
-                    System.Globalization.DateTimeStyles.None
-                );
+                //return System.DateTime.ParseExact(value,
+                //    "ddd, d MMM yyyy HH\\:mm\\:ss zzz",
+                //    System.Globalization.DateTimeFormatInfo.InvariantInfo,
+                //    System.Globalization.DateTimeStyles.None
+                //);
+                return DateTime.Parse(value);
             }
         }
 

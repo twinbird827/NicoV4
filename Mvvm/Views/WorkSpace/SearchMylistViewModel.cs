@@ -49,7 +49,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
                         Resources.L_ADD_MYLIST,
                         Resources.M_ADD_MYLIST);
 
-                    AddMylist(result);
+                    AddMylist(NicoDataConverter.ToId(result));
                 });
             }
         }
@@ -65,7 +65,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
                 return _OnAddCopyUrl = _OnAddCopyUrl ?? new RelayCommand(
                 _ =>
                 {
-                    AddMylist(Clipboard.GetText());
+                    AddMylist(NicoDataConverter.ToId(Clipboard.GetText()));
                 });
             }
         }

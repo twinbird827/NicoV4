@@ -34,7 +34,7 @@ namespace NicoV4.Mvvm.Models
         /// <summary>
         /// ｱｲﾃﾑ構成
         /// </summary>
-        public ObservableSynchronizedCollection<string> Videos
+        public virtual ObservableSynchronizedCollection<string> Videos
         {
             get { return _Videos; }
             set { SetProperty(ref _Videos, value); }

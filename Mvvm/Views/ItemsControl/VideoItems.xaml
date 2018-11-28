@@ -11,6 +11,8 @@
              x:Name="Root">
     <ex:ListBoxEx ItemsSource="{Binding ElementName=Root, Path=DataContext}"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.CanContentScroll="True"
+                  VirtualizingPanel.ScrollUnit="Pixel"
                   HorizontalAlignment="Stretch">
 
         <ex:ListBoxEx.ItemContainerStyle>

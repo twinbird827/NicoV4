@@ -13,7 +13,7 @@
                       Dialog:DialogParticipation.Register="{Binding}"
                       be:WindowClosedBehavior.ViewModel="{Binding}"
                       mc:Ignorable="d"
-                      Title="MainWindow" Height="450" Width="1000">
+                      Title="MainWindow">
     <Controls:MetroWindow.DataContext>
         <local:MainWindowViewModel>
             <local:MainWindowViewModel.DialogCoordinator>
@@ -27,6 +27,10 @@
 
             <DataTemplate DataType="{x:Type ic:VideoItemViewModel}">
                 <ic:VideoItem />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ic:MylistItemViewModel}">
+                <ic:MylistItem />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type ws:SearchVideoByRankingViewModel}">

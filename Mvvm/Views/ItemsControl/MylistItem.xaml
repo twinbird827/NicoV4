@@ -16,7 +16,7 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -24,9 +24,7 @@
                Grid.Column="0"
                Grid.RowSpan="2"
                Source="{Binding UserThumbnail}"
-               HorizontalAlignment="Left"
-               Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}" 
-               Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"/>
+               HorizontalAlignment="Left"/>
 
         <Grid Grid.Row="2"
               Grid.Column="0">
