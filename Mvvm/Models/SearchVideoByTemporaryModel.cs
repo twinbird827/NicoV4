@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using WpfUtilV2.Common;
 
 namespace NicoV4.Mvvm.Models
 {
@@ -14,7 +15,10 @@ namespace NicoV4.Mvvm.Models
 
         private SearchVideoByTemporaryModel() : base(true)
         {
-            Reload().ConfigureAwait(false);
+            if (!WpfUtil.IsDesignMode() && !string.IsNullOrWhiteSpace(SettingModel.Instance.MailAddress))
+            {
+                Reload().ConfigureAwait(false);
+            }
         }
 
         public override async Task Reload()

@@ -18,7 +18,7 @@ namespace NicoV4.Mvvm.Models
 
         public MylistStatusModel()
         {
-            Favorites = new List<string>();
+            Favorites = new ObservableSynchronizedCollection<string>();
         }
 
         // ****************************************************************************************************
@@ -40,13 +40,29 @@ namespace NicoV4.Mvvm.Models
         /// お気に入りﾘｽﾄ
         /// </summary>
         [DataMember]
-        public List<string> Favorites { get; set; }
+        public ObservableSynchronizedCollection<string> Favorites { get; set; }
 
         private static MylistStatusModel GetInstance()
         {
             var instance = JsonConverter.Deserialize<MylistStatusModel>(Variables.MylistStatusPath) ?? new MylistStatusModel();
             instance._Mylists = new ObservableSynchronizedCollection<SearchVideoByMylistModel>();
             return instance;
+        }
+
+        public SearchVideoByMylistModel GetMylist(string id)
+        {
+            var mylist = Mylists.FirstOrDefault(v => v.MylistId == id);
+
+            if (mylist == null)
+            {
+                mylist = new SearchVideoByMylistModel(id)
+                {
+                    MylistId = id
+                };
+                Mylists.Add(mylist);
+            }
+
+            return mylist;
         }
 
         public void AddFavorites(string id)

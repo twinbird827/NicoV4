@@ -5,31 +5,97 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NicoV4.Mvvm.Views.WorkSpace"
              xmlns:ic="clr-namespace:NicoV4.Mvvm.Views.ItemsControl"
+             xmlns:mu="clr-namespace:NicoV4.Mvvm.Views.MyUserControls"
+             xmlns:uc="clr-namespace:WpfUtilV2.Mvvm.UserControls;assembly=WpfUtilV2"
+             xmlns:s="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0"
-                    Orientation="Horizontal">
+        <Grid.Resources>
 
-            <Button Content="Add"
-                    Command="{Binding OnAdd}" />
+            <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
 
-            <Button Content="Delete"
-                    Command="{Binding OnDelete}" />
+        </Grid.Resources>
 
-        </StackPanel>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-        <ic:VideoItems Grid.Row="1"
-                       DataContext="{Binding Items}">
+            <TextBlock Grid.Row="0"
+                       Text="ワード検索" />
 
-        </ic:VideoItems>
+            <ComboBox Grid.Row="1"
+                      DisplayMemberPath="Description"
+                      ItemsSource="{Binding SortItems}"
+                      SelectedValue="{Binding SelectedSortItem}" />
+
+            <TextBox Grid.Row="2"
+                     Text="{Binding Word}" />
+
+            <Grid Grid.Row="3">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.Resources>
+                    <s:Boolean x:Key="True">True</s:Boolean>
+                    <s:Boolean x:Key="False">False</s:Boolean>
+                </Grid.Resources>
+
+                <mu:UnderlineButton Grid.Column="0"
+                                    Text="ワード検索"
+                                    Command="{Binding OnSearch}"
+                                    CommandParameter="{StaticResource False}"
+                                    ShowUnderline="{Binding IsTag}"
+                                    ShowUnderlineCondition="False" />
+
+                <mu:UnderlineButton Grid.Column="1"
+                                    Text="タグ検索"
+                                    Command="{Binding OnSearch}"
+                                    CommandParameter="{StaticResource True}"
+                                    ShowUnderline="{Binding IsTag}"
+                                    ShowUnderlineCondition="True" />
+                
+            </Grid>
+
+            <ListBox Grid.Row="4">
+
+            </ListBox>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <ic:VideoItems Grid.Row="0"
+                           DataContext="{Binding Items}">
+
+            </ic:VideoItems>
+
+            <uc:PagingUserControl Grid.Row="1"
+                                  DataLength="{Binding DataLength}"
+                                  PageLength="5"
+                                  Current="{Binding Current}"
+                                  Offset="{Binding Offset, Mode=TwoWay}"
+                                  Limit="25"
+                                  Command="{Binding OnCurrentChanged}">
+            </uc:PagingUserControl>
+
+        </Grid>
     </Grid>
 </UserControl>

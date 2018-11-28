@@ -12,6 +12,12 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <Grid.Resources>
+            
+            <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
+
+        </Grid.Resources>
+
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -37,31 +43,91 @@
             <Button Grid.Row="3"
                     Content="検索"
                     Command="{Binding OnSearch}" />
-            <TextBlock Grid.Row="2"
-                       Text="ランキング集計期間" />
-
-            <ComboBox Grid.Row="3"
-                      DisplayMemberPath="Description"
-                      ItemsSource="{Binding ComboPeriodItems}"
-                      SelectedValue="{Binding SelectedComboPeriodItem}" />
-
-            <TextBlock Grid.Row="4"
-                       Text="ランキング集計対象" />
-
-            <ComboBox Grid.Row="5"
-                      DisplayMemberPath="Description"
-                      ItemsSource="{Binding ComboTargetItems}"
-                      SelectedValue="{Binding SelectedComboTargetItem}" />
-
-            <ListBox Grid.Row="6">
+            
+            <ListBox Grid.Row="4">
 
             </ListBox>
 
+            <Grid Grid.Row="5"
+                  Visibility="{Binding IsCreatorVisible, Converter={StaticResource booleanToVisibilityConverter}}">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           TextWrapping="Wrap"
+                           Style="{StaticResource TextBlockL}"
+                           Text="{Binding MylistTitle}"
+                           HorizontalAlignment="Stretch"
+                           TextAlignment="Left" />
+
+                <Image Grid.Row="1"
+                       Grid.Column="0"
+                       Grid.RowSpan="1"
+                       Grid.ColumnSpan="2"
+                       Width="70"
+                       Height="70"
+                       Source="{Binding UserThumbnail}" />
+
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="ﾕｰｻﾞID：" />
+
+                <TextBlock Grid.Row="2"
+                           Grid.Column="1"
+                           Text="{Binding UserId}" />
+
+                <TextBlock Grid.Row="3"
+                           Grid.Column="0"
+                           Text="ﾕｰｻﾞ名：" />
+
+                <TextBlock Grid.Row="3"
+                           Grid.Column="1"
+                           Text="{Binding MylistCreator}" />
+
+                <TextBlock Grid.Row="4"
+                           Grid.Column="0"
+                           Text="更新日：" />
+
+                <TextBlock Grid.Row="4"
+                           Grid.Column="1"
+                           Text="{Binding MylistDate, StringFormat={}{0:yy/MM/dd HH:mm:ss}}" />
+
+            </Grid>
         </Grid>
 
-        <ic:VideoItems Grid.Column="1"
-                       DataContext="{Binding Items}">
+        <Grid Grid.Column="1">
 
-        </ic:VideoItems>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0"
+                        Orientation="Horizontal">
+
+                <Button Content="Add"
+                    Command="{Binding OnAdd}" />
+
+            </StackPanel>
+
+            <ic:VideoItems Grid.Row="1"
+                           DataContext="{Binding Items}">
+
+            </ic:VideoItems>
+
+        </Grid>
     </Grid>
 </UserControl>

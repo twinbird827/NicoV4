@@ -8,11 +8,22 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using System.Xml.Linq;
+using WpfUtilV2.Common;
 
 namespace NicoV4.Mvvm.Models
 {
     public class SearchVideoByMylistModel : SearchVideoModel
     {
+        public SearchVideoByMylistModel(string url) : this()
+        {
+            if (!WpfUtil.IsDesignMode())
+            {
+                MylistUrl = url;
+
+                Reload().ConfigureAwait(false);
+            }
+        }
+
         public SearchVideoByMylistModel() : base(false)
         {
 

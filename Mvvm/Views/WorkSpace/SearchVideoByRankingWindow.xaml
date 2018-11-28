@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NicoV4.Mvvm.Views.WorkSpace"
              xmlns:ic="clr-namespace:NicoV4.Mvvm.Views.ItemsControl"
+             xmlns:be="clr-namespace:WpfUtilV2.Mvvm.Behaviors;assembly=WpfUtilV2"
              mc:Ignorable="d" >
     <Grid>
         <Grid.ColumnDefinitions>
@@ -29,7 +30,8 @@
             <ComboBox Grid.Row="1"
                       DisplayMemberPath="Description"
                       ItemsSource="{Binding ComboCategoryItems}"
-                      SelectedValue="{Binding SelectedComboCategoryItem}" />
+                      SelectedValue="{Binding SelectedComboCategoryItem}" 
+                      be:ComboBoxSelectionChangedBehavior.Command="{Binding OnSearch}"/>
             
             <TextBlock Grid.Row="2"
                        Text="ランキング集計期間" />
@@ -37,7 +39,8 @@
             <ComboBox Grid.Row="3"
                       DisplayMemberPath="Description"
                       ItemsSource="{Binding ComboPeriodItems}"
-                      SelectedValue="{Binding SelectedComboPeriodItem}" />
+                      SelectedValue="{Binding SelectedComboPeriodItem}"
+                      be:ComboBoxSelectionChangedBehavior.Command="{Binding OnSearch}"/>
 
             <TextBlock Grid.Row="4"
                        Text="ランキング集計対象" />
@@ -45,7 +48,8 @@
             <ComboBox Grid.Row="5"
                       DisplayMemberPath="Description"
                       ItemsSource="{Binding ComboTargetItems}"
-                      SelectedValue="{Binding SelectedComboTargetItem}" />
+                      SelectedValue="{Binding SelectedComboTargetItem}"
+                      be:ComboBoxSelectionChangedBehavior.Command="{Binding OnSearch}"/>
 
             <ListBox Grid.Row="6">
 

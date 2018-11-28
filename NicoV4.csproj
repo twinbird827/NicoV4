@@ -69,7 +69,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Mvvm\Views\ItemsControl\TemporaryVideoItem.xaml">
+    <Page Include="Mvvm\Views\ItemsControl\MylistItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mvvm\Views\ItemsControl\MylistItems.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -91,7 +95,6 @@
     </Compile>
     <Compile Include="Common\NicoDataConverter.cs" />
     <Compile Include="Common\Variables.cs" />
-    <Compile Include="Common\WpfUtil.cs" />
     <Compile Include="Mvvm\ComboItems\ComboboxItemModel.cs" />
     <Compile Include="Mvvm\ComboItems\ComboRankCategoryModel.cs" />
     <Compile Include="Mvvm\ComboItems\ComboRankPeriodModel.cs" />
@@ -99,7 +102,6 @@
     <Compile Include="Mvvm\ComboItems\ComboSortMylistModel.cs" />
     <Compile Include="Mvvm\ComboItems\ComboSortVideoModel.cs" />
     <Compile Include="Mvvm\ComboItems\ComboThumbSizeModel.cs" />
-    <Compile Include="Mvvm\Converters\Long2TimeSpanConverter.cs" />
     <Compile Include="Mvvm\Models\MylistStatusModel.cs" />
     <Compile Include="Mvvm\Models\SearchVideoByMylistModel.cs" />
     <Compile Include="Mvvm\Models\SearchVideoByRankingModel.cs" />
@@ -109,9 +111,13 @@
     <Compile Include="Mvvm\Models\SettingModel.cs" />
     <Compile Include="Mvvm\Models\VideoModel.cs" />
     <Compile Include="Mvvm\Models\VideoStatusModel.cs" />
-    <Compile Include="Mvvm\Views\ItemsControl\TemporaryVideoItem.xaml.cs">
-      <DependentUpon>TemporaryVideoItem.xaml</DependentUpon>
+    <Compile Include="Mvvm\Views\ItemsControl\MylistItem.xaml.cs">
+      <DependentUpon>MylistItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Mvvm\Views\ItemsControl\MylistItems.xaml.cs">
+      <DependentUpon>MylistItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mvvm\Views\ItemsControl\MylistItemViewModel.cs" />
     <Compile Include="Mvvm\Views\ItemsControl\VideoItem.xaml.cs">
       <DependentUpon>VideoItem.xaml</DependentUpon>
     </Compile>
@@ -123,6 +129,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Mvvm\Views\MyUserControls\UnderlineButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mvvm\Views\WorkSpace\SearchMylistWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Mvvm\Views\WorkSpace\SearchVideoByMylistWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,6 +161,14 @@
   <ItemGroup>
     <Compile Include="Mvvm\Views\MainWindowViewModel.cs" />
     <Compile Include="Mvvm\Views\MenuItemType.cs" />
+    <Compile Include="Mvvm\Views\MyUserControls\UnderlineButton.xaml.cs">
+      <DependentUpon>UnderlineButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mvvm\Views\Services\WpfMessageService.cs" />
+    <Compile Include="Mvvm\Views\WorkSpace\SearchMylistViewModel.cs" />
+    <Compile Include="Mvvm\Views\WorkSpace\SearchMylistWindow.xaml.cs">
+      <DependentUpon>SearchMylistWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByMylistViewModel.cs" />
     <Compile Include="Mvvm\Views\WorkSpace\SearchVideoByMylistWindow.xaml.cs">
       <DependentUpon>SearchVideoByMylistWindow.xaml</DependentUpon>
@@ -195,9 +217,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Nico\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\WpfUtilV2\WpfUtilV2.csproj">
       <Project>{12ab67db-0b63-4eb2-8efe-bd496a1b2cc6}</Project>

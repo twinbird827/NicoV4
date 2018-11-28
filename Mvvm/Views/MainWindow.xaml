@@ -9,6 +9,7 @@
                       xmlns:ws="clr-namespace:NicoV4.Mvvm.Views.WorkSpace"
                       xmlns:ic="clr-namespace:NicoV4.Mvvm.Views.ItemsControl"
                       xmlns:be="clr-namespace:WpfUtilV2.Mvvm.Behaviors;assembly=WpfUtilV2"
+                      SaveWindowPosition="True"
                       Dialog:DialogParticipation.Register="{Binding}"
                       be:WindowClosedBehavior.ViewModel="{Binding}"
                       mc:Ignorable="d"
@@ -36,6 +37,18 @@
                 <ws:SearchVideoByTemporaryWindow />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type ws:SearchVideoByWordViewModel}">
+                <ws:SearchVideoByWordWindow />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ws:SearchVideoByMylistViewModel}">
+                <ws:SearchVideoByMylistWindow />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ws:SearchMylistViewModel}">
+                <ws:SearchMylistWindow />
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type ws:SettingViewModel}">
                 <ws:SettingWindow />
             </DataTemplate>
@@ -59,32 +72,50 @@
                 -->
 
                 <Button Content="SearchByWord"
-                    Command="{Binding OnClickMenu}"
-                    CommandParameter="{x:Static local:MenuItemType.SearchByWord}" />
+                        Command="{Binding OnClickMenu}"
+                        CommandParameter="{x:Static local:MenuItemType.SearchByWord}" />
 
                 <Button Content="Ranking"
-                    Command="{Binding OnClickMenu}"
-                    CommandParameter="{x:Static local:MenuItemType.Ranking}" />
+                        Command="{Binding OnClickMenu}"
+                        CommandParameter="{x:Static local:MenuItemType.Ranking}" />
 
-                <Button Content="Temporary"
-                    Command="{Binding OnClickMenu}"
-                    CommandParameter="{x:Static local:MenuItemType.Temporary}" />
+                <Button Command="{Binding OnClickMenu}"
+                        CommandParameter="{x:Static local:MenuItemType.Temporary}" >
+
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.Resources>
+                            <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockM}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TemporaryNewVideo}" Value="True">
+                                        <Setter Property="FontWeight" Value="Bold" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Resources>
+
+                        <TextBlock Text="Temporary" />
+                        <TextBlock Text="(" />
+                        <TextBlock Text="{Binding TemporaryCount}" />
+                        <TextBlock Text=")" />
+                    </StackPanel>
+
+                </Button>
 
                 <Button Content="SearchByMylist"
-                    Command="{Binding OnClickMenu}"
-                    CommandParameter="{x:Static local:MenuItemType.SearchByMylist}" />
+                        Command="{Binding OnClickMenu}"
+                        CommandParameter="{x:Static local:MenuItemType.SearchByMylist}" />
 
                 <Button Content="MylistOfMe"
-                    Command="{Binding OnClickMenu}"
-                    CommandParameter="{x:Static local:MenuItemType.MylistOfMe}" />
+                        Command="{Binding OnClickMenu}"
+                        CommandParameter="{x:Static local:MenuItemType.MylistOfMe}" />
 
                 <Button Content="MylistOfOther"
-                    Command="{Binding OnClickMenu}"
-                    CommandParameter="{x:Static local:MenuItemType.MylistOfOther}" />
+                        Command="{Binding OnClickMenu}"
+                        CommandParameter="{x:Static local:MenuItemType.MylistOfOther}" />
 
                 <Button Content="Setting"
-                    Command="{Binding OnClickMenu}"
-                    CommandParameter="{x:Static local:MenuItemType.Setting}" />
+                        Command="{Binding OnClickMenu}"
+                        CommandParameter="{x:Static local:MenuItemType.Setting}" />
 
             </StackPanel>
 

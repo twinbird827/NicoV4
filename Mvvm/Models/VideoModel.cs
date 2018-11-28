@@ -3,10 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using WpfUtilV2.Mvvm;
+using WpfUtilV2.Mvvm.Service;
 
 namespace NicoV4.Mvvm.Models
 {
@@ -217,7 +219,24 @@ namespace NicoV4.Mvvm.Models
 
             // NEWﾘｽﾄから削除
             VideoStatusModel.Instance.NewVideos.Remove(VideoId);
+        }
 
+        public async Task Download(string path)
+        {
+            using (var handler = new HttpClientHandler())
+            using (var client = new HttpClient(handler))
+            {
+                // ﾛｸﾞｲﾝｸｯｷｰ設定
+                handler.CookieContainer = await SettingModel.Instance.GetCookies();
+
+                // 対象動画にｼﾞｬﾝﾌﾟ
+                await client.PostAsync("http://www.nicovideo.jp/watch/" + VideoId, null);
+
+                // 動画URL全文を取得
+                var flvurl = await client.GetStringAsync("http://flapi.nicovideo.jp/api/getflv/" + VideoId);
+
+                ServiceFactory.MessageService.Debug(flvurl);
+            }
         }
     }
 }

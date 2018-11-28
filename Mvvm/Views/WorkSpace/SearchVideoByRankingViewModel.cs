@@ -1,4 +1,5 @@
-﻿using NicoV4.Mvvm.ComboItems;
+﻿using NicoV4.Common;
+using NicoV4.Mvvm.ComboItems;
 using NicoV4.Mvvm.Models;
 using NicoV4.Mvvm.Views.ItemsControl;
 using StatefulModel;

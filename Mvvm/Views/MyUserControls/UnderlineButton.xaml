@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="NicoV4.Mvvm.Views.MyUserControls.UnderlineButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NicoV4.Mvvm.Views.MyUserControls"
+             xmlns:converter="clr-namespace:WpfUtilV2.Mvvm.Converters;assembly=WpfUtilV2"
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d">
+    <Grid x:Name="baseContainer">
+
+        <Grid.Resources>
+            <converter:Compare2BooleanConverter x:Key="comapre2BooleanConverter" />
+
+        </Grid.Resources>
+
+        <Button Grid.Column="1"
+                    Width="70"
+                    Command="{Binding Command}"
+                    CommandParameter="{Binding CommandParameter}">
+            <StackPanel>
+                <TextBlock Text="{Binding Text}" />
+                <Controls:Underline>
+                    <Controls:Underline.Style>
+                        <Style>
+                            <Style.Triggers>
+                                <DataTrigger Value="True">
+                                    <DataTrigger.Binding>
+                                        <MultiBinding Converter="{StaticResource comapre2BooleanConverter}">
+                                            <Binding Path="ShowUnderline" />
+                                            <Binding Path="ShowUnderlineCondition" />
+                                        </MultiBinding>
+                                    </DataTrigger.Binding>
+                                    <Setter Property="Controls:Underline.Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Controls:Underline.Style>
+                </Controls:Underline>
+            </StackPanel>
+            <Button.Style>
+                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                    <Style.Triggers>
+                        <DataTrigger Value="False">
+                            <DataTrigger.Binding>
+                                <MultiBinding Converter="{StaticResource comapre2BooleanConverter}">
+                                    <Binding Path="ShowUnderline" />
+                                    <Binding Path="ShowUnderlineCondition" />
+                                </MultiBinding>
+                            </DataTrigger.Binding>
+                            <Setter Property="IsDefault" Value="True" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</UserControl>

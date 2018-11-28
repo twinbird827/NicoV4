@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NicoV4.Mvvm.Views.ItemsControl
+namespace NicoV4.Mvvm.Views.WorkSpace
 {
     /// <summary>
-    /// TemporaryVideoItem.xaml の相互作用ロジック
+    /// SearchMylistWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class TemporaryVideoItem : UserControl
+    public partial class SearchMylistWindow : UserControl
     {
-        public TemporaryVideoItem()
+        public SearchMylistWindow()
         {
             InitializeComponent();
         }

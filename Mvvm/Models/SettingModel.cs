@@ -58,6 +58,16 @@ namespace NicoV4.Mvvm.Models
         private string _Browser;
 
         /// <summary>
+        /// 最終ﾏｲﾘｽﾄ確認日時
+        /// </summary>
+        public DateTime LastConfirmDatetime
+        {
+            get { return _LastConfirmDatetime; }
+            set { SetProperty(ref _LastConfirmDatetime, value); }
+        }
+        private DateTime _LastConfirmDatetime;
+
+        /// <summary>
         /// ﾛｸﾞｲﾝ時ｸｯｷｰｺﾝﾃﾅ
         /// </summary>
         private CookieContainer Cookies { get; set; }

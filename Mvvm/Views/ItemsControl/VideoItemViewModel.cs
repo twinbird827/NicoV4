@@ -1,4 +1,5 @@
 ﻿using NicoV4.Mvvm.Models;
+using NicoV4.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -304,12 +305,16 @@ namespace NicoV4.Mvvm.Views.ItemsControl
                 return _OnKeyDown = _OnKeyDown ?? new RelayCommand<KeyEventArgs>(
                 e =>
                 {
-                    // ﾀﾞﾌﾞﾙｸﾘｯｸと同じ処理
-                    OnDoubleClick.Execute(null);
-                },
-                e =>
-                {
-                    return e.Key == Key.Enter;
+                    switch (e.Key)
+                    {
+                        case Key.Enter:
+                            // ﾀﾞﾌﾞﾙｸﾘｯｸと同じ処理
+                            OnDoubleClick.Execute(null);
+                            break;
+                        case Key.Delete:
+                            OnTemporaryDel.Execute(null);
+                            break;
+                    }
                 });
             }
         }
@@ -371,12 +376,13 @@ namespace NicoV4.Mvvm.Views.ItemsControl
             get
             {
                 return _OnDownload = _OnDownload ?? new RelayCommand(
-                _ =>
+                async _ =>
                 {
-                    //using (var ms = await Source.GetMovieStreamAsync())
-                    //{
-                    //    File.WriteAllBytes(@"C:\" + DateTime.Now.ToString("yyyyMMddhhmmssfff.bin"), ms.ToArray());
-                    //}
+                    string result = await MainWindowViewModel.Instance.ShowInputAsync(
+                        Resources.L_DOWNLOAD,
+                        Resources.L_DOWNLOAD);
+
+                    await Source.Download(result);
                 },
                 _ =>
                 {
