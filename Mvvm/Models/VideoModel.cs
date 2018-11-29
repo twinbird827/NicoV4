@@ -242,12 +242,13 @@ namespace NicoV4.Mvvm.Models
 
                 flvurl = Uri.UnescapeDataString(flvurl);
                 flvurl = Regex.Match(flvurl, @"&url=.*").Value.Replace("&url=", "");
-
-                var bytes = await client.GetByteArrayAsync(flvurl);
+                var res = await client.SendAsync(new HttpRequestMessage(HttpMethod.Get, "http://flapi.nicovideo.jp/api/getflv/" + VideoId));
+                
+                //var bytes = await client.GetByteArrayAsync(flvurl);
+                //File.WriteAllBytes(path, bytes);
 
                 ServiceFactory.MessageService.Debug(flvurl);
 
-                File.WriteAllBytes(path, bytes);
             }
         }
     }
