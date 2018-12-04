@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:NicoV4.Mvvm.Views.WorkSpace"
              xmlns:ic="clr-namespace:NicoV4.Mvvm.Views.ItemsControl"
              xmlns:mu="clr-namespace:NicoV4.Mvvm.Views.MyUserControls"
-             xmlns:uc="clr-namespace:WpfUtilV2.Mvvm.UserControls;assembly=WpfUtilV2"
              xmlns:s="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d">
     <Grid>
@@ -87,14 +86,14 @@
 
             </ic:VideoItems>
 
-            <uc:PagingUserControl Grid.Row="1"
+            <mu:PagingUserControl Grid.Row="1"
                                   DataLength="{Binding DataLength}"
                                   PageLength="5"
                                   Current="{Binding Current}"
                                   Offset="{Binding Offset, Mode=TwoWay}"
                                   Limit="25"
                                   Command="{Binding OnCurrentChanged}">
-            </uc:PagingUserControl>
+            </mu:PagingUserControl>
 
         </Grid>
     </Grid>
