@@ -94,6 +94,16 @@ namespace NicoV4.Mvvm.Views.WorkSpace
         private string _Copyright;
 
         /// <summary>
+        /// ｻﾑﾈｲﾙ
+        /// </summary>
+        public ThumbnailSize Thumbnail
+        {
+            get { return _Thumbnail; }
+            set { SetProperty(ref _Thumbnail, value); }
+        }
+        private ThumbnailSize _Thumbnail;
+
+        /// <summary>
         /// ﾛｸﾞｲﾝ処理
         /// </summary>
         public ICommand OnLogin
@@ -128,7 +138,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
         public ICommand _OnLogin;
 
         /// <summary>
-        /// ﾛｸﾞｲﾝ処理
+        /// ﾌﾞﾗｳｻﾞ変更処理
         /// </summary>
         public ICommand OnBrowserSetting
         {
@@ -145,6 +155,22 @@ namespace NicoV4.Mvvm.Views.WorkSpace
             }
         }
         public ICommand _OnBrowserSetting;
+
+        /// <summary>
+        /// ｻﾑﾈｻｲｽﾞ変更処理
+        /// </summary>
+        public ICommand OnThumbnailSetting
+        {
+            get
+            {
+                return _OnThumbnailSetting = _OnThumbnailSetting ?? new RelayCommand(
+                    _ =>
+                    {
+                        SettingModel.Instance.Thumbnail = Thumbnail;
+                    });
+            }
+        }
+        public ICommand _OnThumbnailSetting;
 
 
     }

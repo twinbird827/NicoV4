@@ -102,6 +102,7 @@
     <Compile Include="Mvvm\ComboItems\ComboSortMylistModel.cs" />
     <Compile Include="Mvvm\ComboItems\ComboSortVideoModel.cs" />
     <Compile Include="Mvvm\ComboItems\ComboThumbSizeModel.cs" />
+    <Compile Include="Mvvm\Models\FavoriteModel.cs" />
     <Compile Include="Mvvm\Models\MylistStatusModel.cs" />
     <Compile Include="Mvvm\Models\SearchVideoByMylistModel.cs" />
     <Compile Include="Mvvm\Models\SearchVideoByRankingModel.cs" />
@@ -172,6 +173,7 @@
       <DependentUpon>UnderlineButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Mvvm\Views\Services\WpfMessageService.cs" />
+    <Compile Include="Mvvm\Views\ThumbnailSize.cs" />
     <Compile Include="Mvvm\Views\WorkSpace\SearchMylistViewModel.cs" />
     <Compile Include="Mvvm\Views\WorkSpace\SearchMylistWindow.xaml.cs">
       <DependentUpon>SearchMylistWindow.xaml</DependentUpon>

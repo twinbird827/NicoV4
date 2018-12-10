@@ -20,7 +20,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
         public SearchMylistViewModel()
         {
             Items = MylistStatusModel.Instance.Favorites.ToSyncedSynchronizationContextCollection(
-                id => new MylistItemViewModel(id),
+                id => new MylistItemViewModel(id.Mylist),
                 AnonymousSynchronizationContext.Current
             );
         }
@@ -90,7 +90,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
                 return;
             }
 
-            MylistStatusModel.Instance.Favorites.Add(mylist.MylistId);
+            MylistStatusModel.Instance.AddFavorites(mylist.MylistId);
         }
     }
 }

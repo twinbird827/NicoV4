@@ -41,7 +41,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
                 .Instance
                 .Items
                 .ToSyncedSynchronizationContextCollection(m => m, AnonymousSynchronizationContext.Current);
-            SelectedSortItem = SortItems.First();
+            SelectedSortItem = SettingModel.Instance.SearchVideoByMylistSort;
 
         }
 
@@ -73,7 +73,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
         public ComboboxItemModel SelectedSortItem
         {
             get { return _SelectedSortItem; }
-            set { SetProperty(ref _SelectedSortItem, value); }
+            set { if (SetProperty(ref _SelectedSortItem, value)) SettingModel.Instance.SearchVideoByMylistSort = value; }
         }
         private ComboboxItemModel _SelectedSortItem;
 

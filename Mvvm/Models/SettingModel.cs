@@ -1,4 +1,6 @@
 ﻿using NicoV4.Common;
+using NicoV4.Mvvm.ComboItems;
+using NicoV4.Mvvm.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,14 +60,64 @@ namespace NicoV4.Mvvm.Models
         private string _Browser;
 
         /// <summary>
-        /// 最終ﾏｲﾘｽﾄ確認日時
+        /// ｻﾑﾈｲﾙ
         /// </summary>
-        public DateTime LastConfirmDatetime
+        public ThumbnailSize Thumbnail
         {
-            get { return _LastConfirmDatetime; }
-            set { SetProperty(ref _LastConfirmDatetime, value); }
+            get { return _Thumbnail; }
+            set { SetProperty(ref _Thumbnail, value); }
         }
-        private DateTime _LastConfirmDatetime;
+        private ThumbnailSize _Thumbnail;
+
+        /// <summary>
+        /// ﾏｲﾘｽﾄ内ﾋﾞﾃﾞｵ検索画面のｿｰﾄ順
+        /// </summary>
+        public ComboboxItemModel SearchVideoByMylistSort
+        {
+            get { return _SearchVideoByMylistSort; }
+            set { SetProperty(ref _SearchVideoByMylistSort, value); }
+        }
+        private ComboboxItemModel _SearchVideoByMylistSort;
+
+        /// <summary>
+        /// ﾗﾝｷﾝｸﾞ画面の対象
+        /// </summary>
+        public ComboboxItemModel SearchVideoByRankingTarget
+        {
+            get { return _SearchVideoByRankingTarget; }
+            set { SetProperty(ref _SearchVideoByRankingTarget, value); }
+        }
+        private ComboboxItemModel _SearchVideoByRankingTarget;
+
+        /// <summary>
+        /// ﾗﾝｷﾝｸﾞ画面の期間
+        /// </summary>
+        public ComboboxItemModel SearchVideoByRankingPeriod
+        {
+            get { return _SearchVideoByRankingPeriod; }
+            set { SetProperty(ref _SearchVideoByRankingPeriod, value); }
+        }
+        private ComboboxItemModel _SearchVideoByRankingPeriod;
+
+        /// <summary>
+        /// ﾗﾝｷﾝｸﾞ画面のｶﾃｺﾞﾘ
+        /// </summary>
+        public ComboboxItemModel SearchVideoByRankingCategory
+        {
+            get { return _SearchVideoByRankingCategory; }
+            set { SetProperty(ref _SearchVideoByRankingCategory, value); }
+        }
+        private ComboboxItemModel _SearchVideoByRankingCategory;
+
+        /// <summary>
+        /// ﾏｲﾘｽﾄ内ﾋﾞﾃﾞｵ検索画面のｿｰﾄ順
+        /// </summary>
+        public ComboboxItemModel SearchVideoByWordSort
+        {
+            get { return _SearchVideoByWordSort; }
+            set { SetProperty(ref _SearchVideoByWordSort, value); }
+        }
+        private ComboboxItemModel _SearchVideoByWordSort;
 
         /// <summary>
         /// ﾛｸﾞｲﾝ時ｸｯｷｰｺﾝﾃﾅ
@@ -164,6 +216,7 @@ namespace NicoV4.Mvvm.Models
 
             MailAddress = null;
             Password = null;
+            Cookies = null;
 
             base.OnDisposed();
         }

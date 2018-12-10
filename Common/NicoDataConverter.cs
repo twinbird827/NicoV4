@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NicoV4.Mvvm.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -140,6 +141,8 @@ namespace NicoV4.Common
                     BitmapImage bitmap = new BitmapImage();
                     bitmap.BeginInit();
                     bitmap.StreamSource = stream;
+                    bitmap.DecodePixelHeight = 160 + 48 * ((int)SettingModel.Instance.Thumbnail);
+                    bitmap.DecodePixelWidth = 90 + 27 * ((int)SettingModel.Instance.Thumbnail);
                     bitmap.CacheOption = BitmapCacheOption.OnLoad;
                     bitmap.EndInit();
                     if (bitmap.CanFreeze)

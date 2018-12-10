@@ -44,10 +44,9 @@ namespace NicoV4.Mvvm.Views.WorkSpace
                 .Items
                 .ToSyncedSynchronizationContextCollection(m => m, AnonymousSynchronizationContext.Current);
 
-            // TODO 履歴があるなら最新の履歴を初期値とする。
-            SelectedComboTargetItem = ComboTargetItems.First();
-            SelectedComboPeriodItem = ComboPeriodItems.First();
-            SelectedComboCategoryItem = ComboCategoryItems.First();
+            SelectedComboTargetItem = SettingModel.Instance.SearchVideoByRankingTarget;
+            SelectedComboPeriodItem = SettingModel.Instance.SearchVideoByRankingPeriod;
+            SelectedComboCategoryItem = SettingModel.Instance.SearchVideoByRankingCategory;
 
             OnSearch.Execute(null);
         }
@@ -70,7 +69,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
         public ComboboxItemModel SelectedComboTargetItem
         {
             get { return _SelectedComboTargetItem; }
-            set { SetProperty(ref _SelectedComboTargetItem, value); }
+            set { if (SetProperty(ref _SelectedComboTargetItem, value)) SettingModel.Instance.SearchVideoByRankingTarget = value; }
         }
         private ComboboxItemModel _SelectedComboTargetItem;
 
@@ -90,7 +89,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
         public ComboboxItemModel SelectedComboPeriodItem
         {
             get { return _SelectedComboPeriodItem; }
-            set { SetProperty(ref _SelectedComboPeriodItem, value); }
+            set { if (SetProperty(ref _SelectedComboPeriodItem, value)) SettingModel.Instance.SearchVideoByRankingPeriod = value; }
         }
         private ComboboxItemModel _SelectedComboPeriodItem;
 
@@ -110,7 +109,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
         public ComboboxItemModel SelectedComboCategoryItem
         {
             get { return _SelectedComboCategoryItem; }
-            set { SetProperty(ref _SelectedComboCategoryItem, value); }
+            set { if (SetProperty(ref _SelectedComboCategoryItem, value)) SettingModel.Instance.SearchVideoByRankingCategory = value; }
         }
         private ComboboxItemModel _SelectedComboCategoryItem;
 

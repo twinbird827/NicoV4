@@ -8,6 +8,7 @@
              
              xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:view="clr-namespace:WpfUtilV2.Mvvm.Behaviors;assembly=WpfUtilV2"
+             xmlns:converters="clr-namespace:WpfUtilV2.Mvvm.Converters;assembly=WpfUtilV2"
              xmlns:properties="clr-namespace:NicoV4.Properties">
     <UniformGrid Columns="3" Rows="3">
 
@@ -103,7 +104,47 @@
             </Grid>
 
         </Border>
-        <Border></Border>
+        <Border>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.Resources>
+                    <converters:Boolean2EnumConverter x:Key="Enum" />
+                </Grid.Resources>
+                
+                <Controls:Underline Grid.Row="0" 
+                                    Content="サムネイル設定"/>
+
+                <StackPanel Grid.Row="1"
+                            Orientation="Vertical">
+
+                    <RadioButton GroupName="1"
+                                 Content="サムネ小"
+                                 IsChecked="{Binding Thumbnail, Converter={StaticResource Enum}, Mode=TwoWay, ConverterParameter=Small}" />
+
+                    <RadioButton GroupName="2"
+                                 Content="サムネ中"
+                                 IsChecked="{Binding Thumbnail, Converter={StaticResource Enum}, Mode=TwoWay, ConverterParameter=Medium}" />
+
+                    <RadioButton GroupName="3"
+                                 Content="サムネ大"
+                                 IsChecked="{Binding Thumbnail, Converter={StaticResource Enum}, Mode=TwoWay, ConverterParameter=Large}" />
+
+                </StackPanel>
+
+                <Button Grid.Row="2"
+                        Width="100"
+                        Content="設定"
+                        Command="{Binding OnThumbnailSetting}"
+                        />
+            </Grid>
+
+        </Border>
         <Border></Border>
         <Border></Border>
         <Border></Border>
