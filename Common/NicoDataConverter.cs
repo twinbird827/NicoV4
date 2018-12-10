@@ -35,6 +35,14 @@ namespace NicoV4.Common
             return long.Parse(value.Replace(",", ""));
         }
 
+        public static string GetData(XElement e, string name)
+        {
+            return (string)e
+                .Descendants("strong")
+                .Where(x => (string)x.Attribute("class") == name)
+                .FirstOrDefault();
+        }
+
         /// <summary>
         /// Xmlｴﾚﾒﾝﾄから指定した名前に紐付くｶｳﾝﾀを取得します。
         /// </summary>
@@ -43,10 +51,8 @@ namespace NicoV4.Common
         /// <returns>ｶｳﾝﾀ</returns>
         public static long ToCounter(XElement e, string name)
         {
-            var s = (string)e
-                .Descendants("strong")
-                .Where(x => (string)x.Attribute("class") == name)
-                .FirstOrDefault();
+            var s = GetData(e, name);
+
             if (string.IsNullOrEmpty(s))
             {
                 return 0;
@@ -118,6 +124,19 @@ namespace NicoV4.Common
             }
         }
 
+        public static DateTime ToRankingDatetime(XElement e, string name)
+        {
+            // 2018年02月27日 20：00：00
+            var s = GetData(e, name);
+
+            return System.DateTime.ParseExact(s,
+                "yyyy年MM月dd日 HH：mm：ss",
+                System.Globalization.DateTimeFormatInfo.InvariantInfo,
+                System.Globalization.DateTimeStyles.None
+            );
+
+        }
+
         public static async Task<BitmapImage> ToThumbnail(string url)
         {
             return await System.Windows.Application.Current.Dispatcher.Invoke(async () =>
@@ -141,8 +160,8 @@ namespace NicoV4.Common
                     BitmapImage bitmap = new BitmapImage();
                     bitmap.BeginInit();
                     bitmap.StreamSource = stream;
-                    bitmap.DecodePixelHeight = 160 + 48 * ((int)SettingModel.Instance.Thumbnail);
-                    bitmap.DecodePixelWidth = 90 + 27 * ((int)SettingModel.Instance.Thumbnail);
+                    bitmap.DecodePixelWidth = 160 + 48 * ((int)SettingModel.Instance.Thumbnail);
+                    bitmap.DecodePixelHeight = 120 + 36 * ((int)SettingModel.Instance.Thumbnail);
                     bitmap.CacheOption = BitmapCacheOption.OnLoad;
                     bitmap.EndInit();
                     if (bitmap.CanFreeze)

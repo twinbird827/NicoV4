@@ -25,6 +25,6 @@ namespace NicoV4.Mvvm.Models
             get { return _LastConfirmDatetime; }
             set { SetProperty(ref _LastConfirmDatetime, value); }
         }
-        private DateTime _LastConfirmDatetime;
+        private DateTime _LastConfirmDatetime = DateTime.MinValue;
     }
 }

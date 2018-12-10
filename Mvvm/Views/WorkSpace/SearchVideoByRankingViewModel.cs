@@ -133,10 +133,14 @@ namespace NicoV4.Mvvm.Views.WorkSpace
                 return _OnSearch = _OnSearch ?? new RelayCommand(
                 async _ =>
                 {
+                    OnPropertyChanged(nameof(SelectedComboTargetItem));
+                    OnPropertyChanged(nameof(SelectedComboPeriodItem));
+                    OnPropertyChanged(nameof(SelectedComboCategoryItem));
+
                     // 入力値をﾓﾃﾞﾙにｾｯﾄ
-                    Source.Target = this.SelectedComboTargetItem.Value;
-                    Source.Period = this.SelectedComboPeriodItem.Value;
-                    Source.Category = this.SelectedComboCategoryItem.Value;
+                    Source.Target = this.SelectedComboTargetItem?.Value;
+                    Source.Period = this.SelectedComboPeriodItem?.Value;
+                    Source.Category = this.SelectedComboCategoryItem?.Value;
 
                     // 検索実行
                     await this.Source.Reload();

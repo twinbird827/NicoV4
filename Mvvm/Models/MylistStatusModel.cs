@@ -73,6 +73,14 @@ namespace NicoV4.Mvvm.Models
             }
         }
 
+        public void DeleteFavorites(string id)
+        {
+            if (Favorites.Any(f => f.Mylist == id))
+            {
+                Favorites.Remove(Favorites.First(f => f.Mylist == id));
+            }
+        }
+
         protected override void OnDisposed()
         {
             // ﾌﾟﾛﾊﾟﾃｨに設定された内容を外部ﾌｧｲﾙに保存します。

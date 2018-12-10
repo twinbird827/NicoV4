@@ -233,7 +233,7 @@ namespace NicoV4.Mvvm.Views.ItemsControl
                 _ =>
                 {
                     // ﾒﾆｭｰから自身を削除
-                    MylistStatusModel.Instance.Favorites.Remove(MylistId);
+                    MylistStatusModel.Instance.DeleteFavorites(Source.MylistId);
                 },
                 _ =>
                 {

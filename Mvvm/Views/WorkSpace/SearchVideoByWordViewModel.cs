@@ -134,7 +134,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
                     Source.Word = this.Word;
                     Source.Offset = 0;
                     Source.IsTag = this.IsTag;
-                    Source.OrderBy = this.SelectedSortItem.Value;
+                    Source.OrderBy = this.SelectedSortItem?.Value;
 
                     // 検索実行
                     await this.Source.Reload();
