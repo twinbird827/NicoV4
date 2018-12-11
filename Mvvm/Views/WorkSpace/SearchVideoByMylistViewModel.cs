@@ -21,10 +21,11 @@ namespace NicoV4.Mvvm.Views.WorkSpace
 
         }
 
-        public SearchVideoByMylistViewModel(SearchVideoByMylistModel model)
+        public SearchVideoByMylistViewModel(SearchVideoByMylistModel model) : base(model)
         {
             Source = model;
 
+            this.Word = Source.MylistUrl;
             this.MylistTitle = Source.MylistTitle;
             this.MylistCreator = Source.MylistCreator;
             this.MylistDescription = Source.MylistDescription;

@@ -65,12 +65,16 @@ namespace NicoV4.Mvvm.Views.WorkSpace
                 return _OnAddCopyUrl = _OnAddCopyUrl ?? new RelayCommand(
                 _ =>
                 {
-                    AddMylist(NicoDataConverter.ToId(Clipboard.GetText()));
+                    AddMylist(NicoDataConverter.ToId(Clipboard.GetText(TextDataFormat.Text)));
                 });
             }
         }
         public ICommand _OnAddCopyUrl;
 
+        /// <summary>
+        /// 共通の追加処理
+        /// </summary>
+        /// <param name="url">追加するURL</param>
         private void AddMylist(string url)
         {
             SearchVideoByMylistModel mylist;

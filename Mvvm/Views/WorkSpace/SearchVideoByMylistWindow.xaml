@@ -8,7 +8,7 @@
              mc:Ignorable="d" >
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="100" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
@@ -42,7 +42,7 @@
 
             <Button Grid.Row="3"
                     Content="検索"
-                    Command="{Binding OnSearch}" />
+                    Command="{Binding OnSearch, UpdateSourceTrigger=PropertyChanged}" />
             
             <ListBox Grid.Row="4">
 

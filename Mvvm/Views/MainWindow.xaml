@@ -60,72 +60,87 @@
         </ResourceDictionary>
 
     </Controls:MetroWindow.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+    <DockPanel>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="0">
+            <Border Grid.Column="0">
 
-            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical">
 
-                <!-- 
+                    <!-- 
                 <Button Content="FullMenu"
                     Command="{Binding OnOpenFlyout}" />
                 -->
 
-                <Button Content="SearchByWord"
+                    <Button Content="SearchByWord"
                         Command="{Binding OnClickMenu}"
                         CommandParameter="{x:Static local:MenuItemType.SearchByWord}" />
 
-                <Button Content="Ranking"
+                    <Button Content="Ranking"
                         Command="{Binding OnClickMenu}"
                         CommandParameter="{x:Static local:MenuItemType.Ranking}" />
 
-                <Button Command="{Binding OnClickMenu}"
+                    <Button Command="{Binding OnClickMenu}"
                         CommandParameter="{x:Static local:MenuItemType.Temporary}" >
 
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel.Resources>
-                            <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockM}">
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding TemporaryNewVideo}" Value="True">
-                                        <Setter Property="FontWeight" Value="Bold" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </StackPanel.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel.Resources>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockM}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding TemporaryNewVideo}" Value="True">
+                                            <Setter Property="FontWeight" Value="Bold" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Resources>
 
-                        <TextBlock Text="Temporary" />
-                        <TextBlock Text="(" />
-                        <TextBlock Text="{Binding TemporaryCount}" />
-                        <TextBlock Text=")" />
-                    </StackPanel>
+                            <TextBlock Text="Temporary" />
+                            <TextBlock Text="(" />
+                            <TextBlock Text="{Binding TemporaryCount}" />
+                            <TextBlock Text=")" />
+                        </StackPanel>
 
-                </Button>
+                    </Button>
 
-                <Button Content="SearchByMylist"
+                    <Button Content="SearchByMylist"
                         Command="{Binding OnClickMenu}"
                         CommandParameter="{x:Static local:MenuItemType.SearchByMylist}" />
 
-                <Button Content="MylistOfMe"
+                    <Button Content="MylistOfMe"
                         Command="{Binding OnClickMenu}"
                         CommandParameter="{x:Static local:MenuItemType.MylistOfMe}" />
 
-                <Button Content="MylistOfOther"
+                    <Button Content="MylistOfOther"
                         Command="{Binding OnClickMenu}"
                         CommandParameter="{x:Static local:MenuItemType.MylistOfOther}" />
 
-                <Button Content="Setting"
+                    <Button Content="Setting"
                         Command="{Binding OnClickMenu}"
                         CommandParameter="{x:Static local:MenuItemType.Setting}" />
 
-            </StackPanel>
+                </StackPanel>
 
-        </Border>
+            </Border>
 
-        <ContentControl Grid.Column="1"
+            <ContentControl Grid.Column="1"
                         Content="{Binding Current}" />
-    </Grid>
+
+        </Grid>
+        
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <ProgressBar IsIndeterminate="{Binding IsDownloding}" Width="60" />
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Text="{Binding Message}" />
+            </StatusBarItem>
+        </StatusBar>
+        
+    </DockPanel>
+
 </Controls:MetroWindow>

@@ -153,7 +153,8 @@ namespace NicoV4.Mvvm.Models
             {
                 if (SetProperty(ref _ThumbnailUrl, value) && !string.IsNullOrWhiteSpace(value))
                 {
-                    NicoDataConverter.ToThumbnail(value)
+                    var urls = (new[] { ".L", ".M", "" }).Select(s => value + s);
+                    NicoDataConverter.ToThumbnail(urls.ToArray())
                         .ContinueWith(
                             t => Thumbnail = t.Result,
                             TaskScheduler.FromCurrentSynchronizationContext()

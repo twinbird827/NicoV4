@@ -102,6 +102,8 @@
     <Compile Include="Mvvm\ComboItems\ComboSortMylistModel.cs" />
     <Compile Include="Mvvm\ComboItems\ComboSortVideoModel.cs" />
     <Compile Include="Mvvm\ComboItems\ComboThumbSizeModel.cs" />
+    <Compile Include="Mvvm\Models\DownloadFileName.cs" />
+    <Compile Include="Mvvm\Models\DownloadModel.cs" />
     <Compile Include="Mvvm\Models\FavoriteModel.cs" />
     <Compile Include="Mvvm\Models\MylistStatusModel.cs" />
     <Compile Include="Mvvm\Models\SearchVideoByMylistModel.cs" />

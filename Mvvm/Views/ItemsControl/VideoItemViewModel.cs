@@ -376,13 +376,14 @@ namespace NicoV4.Mvvm.Views.ItemsControl
             get
             {
                 return _OnDownload = _OnDownload ?? new RelayCommand(
-                async _ =>
+                _ =>
                 {
-                    string result = await MainWindowViewModel.Instance.ShowInputAsync(
-                        Resources.L_DOWNLOAD,
-                        Resources.L_DOWNLOAD);
+                    //string result = await MainWindowViewModel.Instance.ShowInputAsync(
+                    //    Resources.L_DOWNLOAD,
+                    //    Resources.L_DOWNLOAD);
 
-                    await Source.Download(result);
+                    //await Source.Download(result);
+                    DownloadModel.Instance.Downloads.Add(Source);
                 },
                 _ =>
                 {

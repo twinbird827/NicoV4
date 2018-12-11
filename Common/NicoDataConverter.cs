@@ -35,6 +35,12 @@ namespace NicoV4.Common
             return long.Parse(value.Replace(",", ""));
         }
 
+        /// <summary>
+        /// XMLから所定の場所にある値を取得します。
+        /// </summary>
+        /// <param name="e">Xｴﾚﾒﾝﾄ</param>
+        /// <param name="name">名前</param>
+        /// <returns></returns>
         public static string GetData(XElement e, string name)
         {
             return (string)e
@@ -124,6 +130,12 @@ namespace NicoV4.Common
             }
         }
 
+        /// <summary>
+        /// ﾗﾝｷﾝｸﾞ画面の日付をDateTimeに変換します。
+        /// </summary>
+        /// <param name="e">Xmlｴﾚﾒﾝﾄ</param>
+        /// <param name="name">日付名</param>
+        /// <returns>日付</returns>
         public static DateTime ToRankingDatetime(XElement e, string name)
         {
             // 2018年02月27日 20：00：00
@@ -137,6 +149,11 @@ namespace NicoV4.Common
 
         }
 
+        /// <summary>
+        /// 指定したURLのｻﾑﾈｲﾙを取得します。
+        /// </summary>
+        /// <param name="url">URL</param>
+        /// <returns></returns>
         public static async Task<BitmapImage> ToThumbnail(string url)
         {
             return await System.Windows.Application.Current.Dispatcher.Invoke(async () =>
@@ -171,6 +188,21 @@ namespace NicoV4.Common
                     return bitmap;
                 }
             });
+        }
+
+        /// <summary>
+        /// 指定したURLのいずれかからｻﾑﾈｲﾙを取得します。
+        /// </summary>
+        /// <param name="url">URL</param>
+        /// <returns></returns>
+        public static async Task<BitmapImage> ToThumbnail(string[] urls)
+        {
+            foreach (var url in urls)
+            {
+                var image = await ToThumbnail(url);
+                if (image != null) return image;
+            }
+            return null;
         }
     }
 }

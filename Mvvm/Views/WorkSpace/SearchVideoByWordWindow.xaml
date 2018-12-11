@@ -54,14 +54,14 @@
 
                 <mu:UnderlineButton Grid.Column="0"
                                     Text="ワード検索"
-                                    Command="{Binding OnSearch}"
+                                    Command="{Binding OnSearch, UpdateSourceTrigger=PropertyChanged}"
                                     CommandParameter="{StaticResource False}"
                                     ShowUnderline="{Binding IsTag}"
                                     ShowUnderlineCondition="False" />
 
                 <mu:UnderlineButton Grid.Column="1"
                                     Text="タグ検索"
-                                    Command="{Binding OnSearch}"
+                                    Command="{Binding OnSearch, UpdateSourceTrigger=PropertyChanged}"
                                     CommandParameter="{StaticResource True}"
                                     ShowUnderline="{Binding IsTag}"
                                     ShowUnderlineCondition="True" />

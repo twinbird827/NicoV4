@@ -60,7 +60,7 @@
                 <Button Grid.Row="2"
                         Width="100"
                         Content="{x:Static properties:Resources.L_LOGIN}"
-                        Command="{Binding OnLogin}"
+                        Command="{Binding OnLogin, UpdateSourceTrigger=PropertyChanged}"
                         />
             </Grid>
             
@@ -99,7 +99,7 @@
                 <Button Grid.Row="2"
                         Width="100"
                         Content="設定"
-                        Command="{Binding OnBrowserSetting}"
+                        Command="{Binding OnBrowserSetting, UpdateSourceTrigger=PropertyChanged}"
                         />
             </Grid>
 
@@ -140,12 +140,74 @@
                 <Button Grid.Row="2"
                         Width="100"
                         Content="設定"
-                        Command="{Binding OnThumbnailSetting}"
+                        Command="{Binding OnThumbnailSetting, UpdateSourceTrigger=PropertyChanged}"
                         />
             </Grid>
 
         </Border>
-        <Border></Border>
+        <Border>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.Resources>
+                    <converters:Boolean2EnumConverter x:Key="Enum" />
+                </Grid.Resources>
+
+                <Controls:Underline Grid.Row="0" 
+                                    Content="ダウンロード設定"/>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+                               Grid.Column="0" 
+                               Text="ﾃﾞｨﾚｸﾄﾘ" />
+                    <TextBox Grid.Row="0" 
+                               Grid.Column="1" 
+                               Text="{Binding DownloadDirectory}" />
+
+                    <TextBlock Grid.Row="1" 
+                               Grid.Column="0" 
+                               Text="ﾌｧｲﾙ名" />
+                    <StackPanel Grid.Row="1"
+                                Grid.Column="1"
+                                Orientation="Vertical">
+
+                        <RadioButton GroupName="4"
+                                 Content="ﾀｲﾄﾙ"
+                                 IsChecked="{Binding DownloadFileName, Converter={StaticResource Enum}, Mode=TwoWay, ConverterParameter=Title}" />
+
+                        <RadioButton GroupName="5"
+                                 Content="ID"
+                                 IsChecked="{Binding DownloadFileName, Converter={StaticResource Enum}, Mode=TwoWay, ConverterParameter=ID}" />
+
+                        <RadioButton GroupName="6"
+                                 Content="ﾀｲﾄﾙ+ID"
+                                 IsChecked="{Binding DownloadFileName, Converter={StaticResource Enum}, Mode=TwoWay, ConverterParameter=TitleAndID}" />
+
+                    </StackPanel>
+                </Grid>
+
+                <Button Grid.Row="2"
+                        Width="100"
+                        Content="設定"
+                        Command="{Binding OnDownloadSetting, UpdateSourceTrigger=PropertyChanged}"
+                        />
+            </Grid>
+
+        </Border>
         <Border></Border>
         <Border></Border>
         <Border></Border>

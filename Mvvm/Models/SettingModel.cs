@@ -120,6 +120,26 @@ namespace NicoV4.Mvvm.Models
         private ComboboxItemModel _SearchVideoByWordSort;
 
         /// <summary>
+        /// ﾀﾞｳﾝﾛｰﾄﾞﾌｧｲﾙ名の種類
+        /// </summary>
+        public DownloadFileName DownloadFileName
+        {
+            get { return _DownloadFileName; }
+            set { SetProperty(ref _DownloadFileName, value); }
+        }
+        private DownloadFileName _DownloadFileName;
+
+        /// <summary>
+        /// ﾀﾞｳﾝﾛｰﾄﾞﾃﾞｨﾚｸﾄﾘ
+        /// </summary>
+        public string DownloadDirectory
+        {
+            get { return _DownloadDirectory; }
+            set { SetProperty(ref _DownloadDirectory, value); }
+        }
+        private string _DownloadDirectory;
+
+        /// <summary>
         /// ﾛｸﾞｲﾝ時ｸｯｷｰｺﾝﾃﾅ
         /// </summary>
         private CookieContainer Cookies { get; set; }

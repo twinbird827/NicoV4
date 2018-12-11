@@ -31,6 +31,12 @@ namespace NicoV4.Mvvm.Views.WorkSpace
             UpdateDate = (new FileInfo(assm.Location)).LastWriteTime;
             Copyright = asmcpy != null ? asmcpy.Copyright : "";
 
+            // ｻﾑﾈｲﾙ
+            Thumbnail = SettingModel.Instance.Thumbnail;
+
+            // ﾀﾞｳﾝﾛｰﾄﾞ
+            DownloadDirectory = SettingModel.Instance.DownloadDirectory;
+            DownloadFileName = SettingModel.Instance.DownloadFileName;
         }
 
         /// <summary>
@@ -104,6 +110,26 @@ namespace NicoV4.Mvvm.Views.WorkSpace
         private ThumbnailSize _Thumbnail;
 
         /// <summary>
+        /// ﾀﾞｳﾝﾛｰﾄﾞﾌｧｲﾙ名の種類
+        /// </summary>
+        public DownloadFileName DownloadFileName
+        {
+            get { return _DownloadFileName; }
+            set { SetProperty(ref _DownloadFileName, value); }
+        }
+        private DownloadFileName _DownloadFileName;
+
+        /// <summary>
+        /// ﾀﾞｳﾝﾛｰﾄﾞﾃﾞｨﾚｸﾄﾘ
+        /// </summary>
+        public string DownloadDirectory
+        {
+            get { return _DownloadDirectory; }
+            set { SetProperty(ref _DownloadDirectory, value); }
+        }
+        private string _DownloadDirectory;
+
+        /// <summary>
         /// ﾛｸﾞｲﾝ処理
         /// </summary>
         public ICommand OnLogin
@@ -171,6 +197,27 @@ namespace NicoV4.Mvvm.Views.WorkSpace
             }
         }
         public ICommand _OnThumbnailSetting;
+
+        /// <summary>
+        /// ﾀﾞｳﾝﾛｰﾄﾞ関連変更処理
+        /// </summary>
+        public ICommand OnDownloadSetting
+        {
+            get
+            {
+                return _OnDownloadSetting = _OnDownloadSetting ?? new RelayCommand(
+                    _ =>
+                    {
+                        SettingModel.Instance.DownloadDirectory = DownloadDirectory;
+                        SettingModel.Instance.DownloadFileName = DownloadFileName;
+                    },
+                    _ => 
+                    {
+                        return Directory.Exists(DownloadDirectory);
+                    });
+            }
+        }
+        public ICommand _OnDownloadSetting;
 
 
     }

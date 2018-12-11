@@ -45,7 +45,10 @@ namespace NicoV4.Mvvm.Views
             ServiceFactory.MessageService = new WpfMessageService();
 
             // ﾃﾝﾎﾟﾗﾘ数の監視ｲﾍﾞﾝﾄを追加
-            SearchVideoByTemporaryModel.Instance.Videos.CollectionChanged+= SearchVideoByTemporaryModel_OnCollectionChanged;
+            SearchVideoByTemporaryModel.Instance.Videos.CollectionChanged += SearchVideoByTemporaryModel_OnCollectionChanged;
+
+            // ﾀﾞｳﾝﾛｰﾄﾞ状況の監視ｲﾍﾞﾝﾄを追加
+            DownloadModel.Instance.PropertyChanged += Download_OnPropertyChanged;
 
             // ﾀｲﾏｰ起動
             Timer = new DispatcherTimer(DispatcherPriority.Normal, App.Current.Dispatcher);
@@ -97,6 +100,26 @@ namespace NicoV4.Mvvm.Views
             set { SetProperty(ref _TemporaryNewVideo, value); }
         }
         private bool _TemporaryNewVideo;
+
+        /// <summary>
+        /// ﾀﾞｳﾝﾛｰﾄﾞ中かどうか
+        /// </summary>
+        public bool IsDownloding
+        {
+            get { return _IsDownloding; }
+            set { SetProperty(ref _IsDownloding, value); }
+        }
+        private bool _IsDownloding;
+
+        /// <summary>
+        /// 進捗状況を表すﾒｯｾｰｼﾞ
+        /// </summary>
+        public string Message
+        {
+            get { return _Message; }
+            set { SetProperty(ref _Message, value); }
+        }
+        private string _Message;
 
         /// <summary>
         /// ﾀｲﾏｰ
@@ -286,6 +309,20 @@ namespace NicoV4.Mvvm.Views
         {
             TemporaryCount = SearchVideoByTemporaryModel.Instance.Videos.Count();
         }
+
+        protected virtual void Download_OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(Message):
+                    Message = DownloadModel.Instance.Message;
+                    break;
+                case nameof(IsDownloding):
+                    IsDownloding = DownloadModel.Instance.IsDownloding;
+                    break;
+            }
+        }
+
 
     }
 }
