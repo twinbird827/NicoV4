@@ -33,12 +33,12 @@ namespace NicoV4.Mvvm.Models
         /// <summary>
         /// ﾀﾞｳﾝﾛｰﾄﾞ待ちﾘｽﾄ
         /// </summary>
-        public SynchronizationContextCollection<VideoModel> Downloads
+        public ObservableSynchronizedCollection<VideoModel> Downloads
         {
             get { return _Downloads; }
             set { SetProperty(ref _Downloads, value); }
         }
-        private SynchronizationContextCollection<VideoModel> _Downloads;
+        private ObservableSynchronizedCollection<VideoModel> _Downloads = new ObservableSynchronizedCollection<VideoModel>();
 
         /// <summary>
         /// ﾀﾞｳﾝﾛｰﾄﾞ中のﾃﾞｰﾀ
@@ -119,6 +119,8 @@ namespace NicoV4.Mvvm.Models
 
             // ﾀﾞｳﾝﾛｰﾄﾞ開始
             await Download(Current);
+
+            Current = null;
         }
 
         private async Task Download(VideoModel vm)

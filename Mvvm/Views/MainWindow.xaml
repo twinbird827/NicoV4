@@ -60,9 +60,15 @@
         </ResourceDictionary>
 
     </Controls:MetroWindow.Resources>
-    <DockPanel>
-        
-        <Grid>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
@@ -131,8 +137,8 @@
                         Content="{Binding Current}" />
 
         </Grid>
-        
-        <StatusBar DockPanel.Dock="Bottom">
+
+        <StatusBar Grid.Row="1">
             <StatusBarItem>
                 <ProgressBar IsIndeterminate="{Binding IsDownloding}" Width="60" />
             </StatusBarItem>
@@ -140,7 +146,7 @@
                 <TextBlock Text="{Binding Message}" />
             </StatusBarItem>
         </StatusBar>
-        
-    </DockPanel>
+
+    </Grid>
 
 </Controls:MetroWindow>
