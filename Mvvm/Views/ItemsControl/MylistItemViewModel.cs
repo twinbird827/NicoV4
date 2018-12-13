@@ -212,7 +212,7 @@ namespace NicoV4.Mvvm.Views.ItemsControl
                 return _OnCopyUrl = _OnCopyUrl ?? new RelayCommand(
                 _ =>
                 {
-                    Clipboard.SetText(Source.MylistUrl);
+                    Clipboard.SetText(Source.MylistId);
                 },
                 _ =>
                 {

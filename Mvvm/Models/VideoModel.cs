@@ -149,18 +149,7 @@ namespace NicoV4.Mvvm.Models
         public string ThumbnailUrl
         {
             get { return _ThumbnailUrl; }
-            set
-            {
-                if (SetProperty(ref _ThumbnailUrl, value) && !string.IsNullOrWhiteSpace(value))
-                {
-                    var urls = (new[] { ".L", ".M", "" }).Select(s => value + s);
-                    NicoDataConverter.ToThumbnail(urls.ToArray())
-                        .ContinueWith(
-                            t => Thumbnail = t.Result,
-                            TaskScheduler.FromCurrentSynchronizationContext()
-                    );
-                }
-            }
+            set { SetProperty(ref _ThumbnailUrl, value); }
         }
         private string _ThumbnailUrl = null;
 
@@ -169,7 +158,19 @@ namespace NicoV4.Mvvm.Models
         /// </summary>
         public BitmapImage Thumbnail
         {
-            get { return _Thumbnail; }
+            get
+            {
+                if (_Thumbnail == null && !string.IsNullOrEmpty(ThumbnailUrl))
+                {
+                    var urls = (new[] { ".L", ".M", "" }).Select(s => ThumbnailUrl + s);
+                    NicoDataConverter.ToThumbnail(urls.ToArray())
+                        .ContinueWith(
+                            t => Thumbnail = t.Result,
+                            TaskScheduler.FromCurrentSynchronizationContext()
+                    );
+                }
+                return _Thumbnail;
+            }
             set { SetProperty(ref _Thumbnail, value); }
         }
         private BitmapImage _Thumbnail;

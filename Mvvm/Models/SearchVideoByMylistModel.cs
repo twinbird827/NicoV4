@@ -175,7 +175,7 @@ namespace NicoV4.Mvvm.Models
                 video.ViewCounter = NicoDataConverter.ToCounter(desc, "nico-numbers-view");
                 video.MylistCounter = NicoDataConverter.ToCounter(desc, "nico-numbers-mylist");
                 video.CommentCounter = NicoDataConverter.ToCounter(desc, "nico-numbers-res");
-                video.StartTime = DateTime.Parse(channel.Element("pubDate").Value);
+                video.StartTime = NicoDataConverter.ToRankingDatetime(desc, "nico-info-date");
                 video.ThumbnailUrl = (string)desc.Descendants("img").First().Attribute("src");
                 video.LengthSeconds = NicoDataConverter.ToLengthSeconds(lengthSecondsStr);
 
