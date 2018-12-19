@@ -25,7 +25,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
         {
             Source = model;
 
-            this.Word = Source.MylistUrl;
+            this.Word = Source.MylistId;
             this.MylistTitle = Source.MylistTitle;
             this.MylistCreator = Source.MylistCreator;
             this.MylistDescription = Source.MylistDescription;
@@ -44,6 +44,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
                 .ToSyncedSynchronizationContextCollection(m => m, AnonymousSynchronizationContext.Current);
             SelectedSortItem = SettingModel.Instance.SearchVideoByMylistSort;
 
+            OnSearch.Execute(null);
         }
 
         public SearchVideoByMylistModel Source { get; private set; }
