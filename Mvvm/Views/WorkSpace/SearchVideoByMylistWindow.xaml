@@ -38,11 +38,11 @@
                       SelectedValue="{Binding SelectedSortItem}" />
 
             <TextBox Grid.Row="2"
-                     Text="{Binding Word}" />
+                     Text="{Binding Word, UpdateSourceTrigger=PropertyChanged}" />
 
             <Button Grid.Row="3"
                     Content="検索"
-                    Command="{Binding OnSearch, UpdateSourceTrigger=PropertyChanged}" />
+                    Command="{Binding OnSearch}" />
             
             <ListBox Grid.Row="4">
 

@@ -38,7 +38,7 @@
                       SelectedValue="{Binding SelectedSortItem}" />
 
             <TextBox Grid.Row="2"
-                     Text="{Binding Word}" />
+                     Text="{Binding Word, UpdateSourceTrigger=PropertyChanged}" />
 
             <Grid Grid.Row="3">
 
@@ -54,14 +54,14 @@
 
                 <mu:UnderlineButton Grid.Column="0"
                                     Text="ワード検索"
-                                    Command="{Binding OnSearch, UpdateSourceTrigger=PropertyChanged}"
+                                    Command="{Binding OnSearch}"
                                     CommandParameter="{StaticResource False}"
                                     ShowUnderline="{Binding IsTag}"
                                     ShowUnderlineCondition="False" />
 
                 <mu:UnderlineButton Grid.Column="1"
                                     Text="タグ検索"
-                                    Command="{Binding OnSearch, UpdateSourceTrigger=PropertyChanged}"
+                                    Command="{Binding OnSearch}"
                                     CommandParameter="{StaticResource True}"
                                     ShowUnderline="{Binding IsTag}"
                                     ShowUnderlineCondition="True" />
