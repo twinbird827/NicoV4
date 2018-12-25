@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:NicoV4.Mvvm.Views.ItemsControl"
              xmlns:ex="clr-namespace:WpfUtilV2.Mvvm.CustomControls;assembly=WpfUtilV2"
              xmlns:behavior="clr-namespace:WpfUtilV2.Mvvm.Behaviors;assembly=WpfUtilV2"
+             x:Name="Root"
              mc:Ignorable="d" >
     
     <UserControl.Resources>
