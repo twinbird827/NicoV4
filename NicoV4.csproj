@@ -77,6 +77,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Mvvm\Views\ItemsControl\SearchVideoByWordHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mvvm\Views\ItemsControl\SearchVideoByWordHistorys.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Mvvm\Views\ItemsControl\VideoItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -109,6 +117,7 @@
     <Compile Include="Mvvm\Models\SearchVideoByMylistModel.cs" />
     <Compile Include="Mvvm\Models\SearchVideoByRankingModel.cs" />
     <Compile Include="Mvvm\Models\SearchVideoByTemporaryModel.cs" />
+    <Compile Include="Mvvm\Models\SearchVideoByWordHistoryModel.cs" />
     <Compile Include="Mvvm\Models\SearchVideoByWordModel.cs" />
     <Compile Include="Mvvm\Models\SearchVideoModel.cs" />
     <Compile Include="Mvvm\Models\SettingModel.cs" />
@@ -121,6 +130,13 @@
       <DependentUpon>MylistItems.xaml</DependentUpon>
     </Compile>
     <Compile Include="Mvvm\Views\ItemsControl\MylistItemViewModel.cs" />
+    <Compile Include="Mvvm\Views\ItemsControl\SearchVideoByWordHistoryViewModel.cs" />
+    <Compile Include="Mvvm\Views\ItemsControl\SearchVideoByWordHistory.xaml.cs">
+      <DependentUpon>SearchVideoByWordHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mvvm\Views\ItemsControl\SearchVideoByWordHistorys.xaml.cs">
+      <DependentUpon>SearchVideoByWordHistorys.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Mvvm\Views\ItemsControl\VideoItem.xaml.cs">
       <DependentUpon>VideoItem.xaml</DependentUpon>
     </Compile>

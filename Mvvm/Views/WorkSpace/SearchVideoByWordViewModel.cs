@@ -28,6 +28,11 @@ namespace NicoV4.Mvvm.Views.WorkSpace
                 AnonymousSynchronizationContext.Current
             );
 
+            Histories = VideoStatusModel.Instance.SearchByWordHistorys.ToSyncedSynchronizationContextCollection(
+                history => new SearchVideoByWordHistoryViewModel(this, history),
+                AnonymousSynchronizationContext.Current
+            );
+
             SortItems = ComboSortVideoModel
                 .Instance
                 .Items
@@ -66,6 +71,16 @@ namespace NicoV4.Mvvm.Views.WorkSpace
             set { SetProperty(ref _Items, value); }
         }
         private SynchronizationContextCollection<VideoItemViewModel> _Items;
+
+        /// <summary>
+        /// 検索履歴ﾘｽﾄ
+        /// </summary>
+        public SynchronizationContextCollection<SearchVideoByWordHistoryViewModel> Histories
+        {
+            get { return _Histories; }
+            set { SetProperty(ref _Histories, value); }
+        }
+        private SynchronizationContextCollection<SearchVideoByWordHistoryViewModel> _Histories;
 
         /// <summary>
         /// 検索ﾜｰﾄﾞ
@@ -143,6 +158,10 @@ namespace NicoV4.Mvvm.Views.WorkSpace
                     this.Offset = 0;
                     this.DataLength = Source.DataLength;
 
+                    // 履歴に追加
+                    VideoStatusModel.Instance.AddHistory(
+                        Source.Word, Source.OrderBy, Source.IsTag
+                    );
                 },
                 b => {
                     return !string.IsNullOrWhiteSpace(Word);

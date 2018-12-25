@@ -68,9 +68,10 @@
                 
             </Grid>
 
-            <ListBox Grid.Row="4">
+            <ic:SearchVideoByWordHistorys Grid.Row="4"
+                                          DataContext="{Binding Histories}">
 
-            </ListBox>
+            </ic:SearchVideoByWordHistorys>
 
         </Grid>
 

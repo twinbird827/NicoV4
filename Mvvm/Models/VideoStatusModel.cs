@@ -50,6 +50,17 @@ namespace NicoV4.Mvvm.Models
         [DataMember]
         public List<string> SeeVideos { get; set; }
 
+        /// <summary>
+        /// ｱｲﾃﾑ構成
+        /// </summary>
+        [DataMember]
+        public ObservableSynchronizedCollection<SearchVideoByWordHistoryModel> SearchByWordHistorys
+        {
+            get { return _SearchByWordHistorys; }
+            set { SetProperty(ref _SearchByWordHistorys, value); }
+        }
+        private ObservableSynchronizedCollection<SearchVideoByWordHistoryModel> _SearchByWordHistorys;
+
         // ****************************************************************************************************
         // 公開ﾒｿｯﾄﾞ定義
         // ****************************************************************************************************
@@ -58,6 +69,7 @@ namespace NicoV4.Mvvm.Models
         {
             var instance = JsonConverter.Deserialize<VideoStatusModel>(Variables.VideoStatusPath) ?? new VideoStatusModel();
             instance._Videos = new ObservableSynchronizedCollection<VideoModel>();
+            instance._SearchByWordHistorys = instance.SearchByWordHistorys ?? new ObservableSynchronizedCollection<SearchVideoByWordHistoryModel>();
 
             return instance;
         }
@@ -96,6 +108,29 @@ namespace NicoV4.Mvvm.Models
             {
                 return "   ";
             }
+        }
+
+        public void AddHistory(string word, string orderBy, bool isTag)
+        {
+            var history = SearchByWordHistorys.FirstOrDefault(
+                h => h.IsTag == isTag && h.Word == word && h.OrderBy == orderBy
+            );
+
+            if (history != null)
+            {
+                SearchByWordHistorys.Remove(history);
+            }
+            else
+            {
+                history = new SearchVideoByWordHistoryModel()
+                {
+                    Word = word,
+                    OrderBy = orderBy,
+                    IsTag = isTag
+                };
+            }
+
+            SearchByWordHistorys.Insert(0, history);
         }
 
         protected override void OnDisposed()
