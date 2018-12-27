@@ -69,7 +69,7 @@ namespace NicoV4.Mvvm.Models
         {
             if (!Favorites.Any(f => f.Mylist == id))
             {
-                Favorites.Add(new FavoriteModel() { Mylist = id });
+                Favorites.Add(new FavoriteModel() { Mylist = id , LastConfirmDatetime = DateTime.Now});
             }
         }
 
