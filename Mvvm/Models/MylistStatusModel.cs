@@ -19,6 +19,15 @@ namespace NicoV4.Mvvm.Models
         public MylistStatusModel()
         {
             Favorites = new ObservableSynchronizedCollection<FavoriteModel>();
+
+            Disposed += (sender, e) =>
+            {
+                // ﾌﾟﾛﾊﾟﾃｨに設定された内容を外部ﾌｧｲﾙに保存します。
+                JsonConverter.Serialize(Variables.MylistStatusPath, this);
+
+                Mylists = null;
+                Favorites = null;
+            };
         }
 
         // ****************************************************************************************************
@@ -49,7 +58,7 @@ namespace NicoV4.Mvvm.Models
             return instance;
         }
 
-        public SearchVideoByMylistModel GetMylist(string id)
+        public async Task<SearchVideoByMylistModel> GetMylist(string id)
         {
             var mylist = Mylists.FirstOrDefault(v => v.MylistId == id);
 
@@ -59,6 +68,8 @@ namespace NicoV4.Mvvm.Models
                 {
                     MylistId = id
                 };
+                await mylist.Reload();
+
                 Mylists.Add(mylist);
             }
 
@@ -79,17 +90,6 @@ namespace NicoV4.Mvvm.Models
             {
                 Favorites.Remove(Favorites.First(f => f.Mylist == id));
             }
-        }
-
-        protected override void OnDisposed()
-        {
-            // ﾌﾟﾛﾊﾟﾃｨに設定された内容を外部ﾌｧｲﾙに保存します。
-            JsonConverter.Serialize(Variables.MylistStatusPath, this);
-
-            Mylists = null;
-            Favorites = null;
-
-            base.OnDisposed();
         }
     }
 }

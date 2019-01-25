@@ -23,6 +23,16 @@ namespace NicoV4.Mvvm.Models
         private SettingModel()
         {
             Browser = @"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe";
+
+            Disposed += (sender, e) =>
+            {
+                // ﾌﾟﾛﾊﾟﾃｨに設定された内容を外部ﾌｧｲﾙに保存します。
+                JsonConverter.Serialize(Variables.SettingPath, this);
+
+                MailAddress = null;
+                Password = null;
+                Cookies = null;
+            };
         }
 
         // ****************************************************************************************************
@@ -227,18 +237,6 @@ namespace NicoV4.Mvvm.Models
             {
                 return null;
             }
-        }
-
-        protected override void OnDisposed()
-        {
-            // ﾌﾟﾛﾊﾟﾃｨに設定された内容を外部ﾌｧｲﾙに保存します。
-            JsonConverter.Serialize(Variables.SettingPath, this);
-
-            MailAddress = null;
-            Password = null;
-            Cookies = null;
-
-            base.OnDisposed();
         }
     }
 }

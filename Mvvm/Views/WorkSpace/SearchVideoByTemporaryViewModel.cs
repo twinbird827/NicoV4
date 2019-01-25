@@ -23,6 +23,8 @@ namespace NicoV4.Mvvm.Views.WorkSpace
         {
             Source = model;
 
+            Source.Reload().ConfigureAwait(false);
+
             Items = Source.Videos.ToSyncedSynchronizationContextCollection(
                 id => new VideoItemViewModel(id),
                 AnonymousSynchronizationContext.Current

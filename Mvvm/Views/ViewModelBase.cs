@@ -14,7 +14,7 @@ namespace NicoV4.Mvvm.Views
 
         }
 
-        public ViewModelBase(BindableBase source) : base(source)
+        public ViewModelBase(BindableBase source)
         {
 
         }

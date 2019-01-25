@@ -40,11 +40,7 @@ namespace NicoV4.Mvvm.Models
 
                 return string.Format(url, MylistId, OrderBy);
             }
-            set
-            {
-                SetProperty(ref _MylistId, NicoDataConverter.ToId(value), nameof(MylistId));
-                OnPropertyChanged();
-            }
+            set { MylistId = NicoDataConverter.ToId(value); }
         }
 
         /// <summary>
@@ -53,7 +49,7 @@ namespace NicoV4.Mvvm.Models
         public string MylistId
         {
             get { return _MylistId; }
-            set { SetProperty(ref _MylistId, value); }
+            set { SetProperty(ref _MylistId, value); OnPropertyChanged(nameof(MylistUrl)); }
         }
         private string _MylistId = null;
 

@@ -16,23 +16,14 @@ namespace NicoV4.Mvvm.Views.ItemsControl
 {
     public class MylistItemViewModel : ViewModelBase, ISelectableItem
     {
-        public MylistItemViewModel(string id) : this(MylistStatusModel.Instance.GetMylist(id))
+        public MylistItemViewModel(string id)
         {
-
+            Initialize(id).ConfigureAwait(false);
         }
 
         public MylistItemViewModel(SearchVideoByMylistModel model) : base(model)
         {
-            Source = model;
-
-            this.MylistId = Source.MylistId;
-            this.MylistTitle = Source.MylistTitle;
-            this.MylistCreator = Source.MylistCreator;
-            this.MylistDescription = Source.MylistDescription;
-            this.UserId = Source.UserId;
-            this.UserThumbnailUrl = Source.UserThumbnailUrl;
-            this.MylistDate = Source.MylistDate;
-            this.UserThumbnail = Source.UserThumbnail;
+            Initialize(model);
         }
 
         public SearchVideoByMylistModel Source { get; set; }
@@ -127,10 +118,29 @@ namespace NicoV4.Mvvm.Views.ItemsControl
         }
         private bool _IsSelected = false;
 
-        protected override void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        private async Task Initialize(string id)
         {
-            base.OnPropertyChanged(sender, e);
+            Initialize(await MylistStatusModel.Instance.GetMylist(id));
+        }
 
+        private void Initialize(SearchVideoByMylistModel model)
+        {
+            Source = model;
+            Source.AddOnPropertyChanged(this, OnPropertyChanged);
+
+            this.MylistId = Source.MylistId;
+            this.MylistTitle = Source.MylistTitle;
+            this.MylistCreator = Source.MylistCreator;
+            this.MylistDescription = Source.MylistDescription;
+            this.UserId = Source.UserId;
+            this.UserThumbnailUrl = Source.UserThumbnailUrl;
+            this.MylistDate = Source.MylistDate;
+            this.UserThumbnail = Source.UserThumbnail;
+
+        }
+
+        protected void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
             switch (e.PropertyName)
             {
                 case nameof(MylistId):

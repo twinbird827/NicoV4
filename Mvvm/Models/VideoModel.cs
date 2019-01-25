@@ -22,15 +22,8 @@ namespace NicoV4.Mvvm.Models
         /// </summary>
         public string VideoUrl
         {
-            get
-            {
-                return "http://nico.ms/" + _VideoId;
-            }
-            set
-            {
-                SetProperty(ref _VideoId, NicoDataConverter.ToId(value), nameof(VideoId));
-                OnPropertyChanged();
-            }
+            get { return "http://nico.ms/" + _VideoId; }
+            set { VideoId = NicoDataConverter.ToId(value); }
         }
 
         /// <summary>
@@ -39,7 +32,7 @@ namespace NicoV4.Mvvm.Models
         public string VideoId
         {
             get { return _VideoId; }
-            set { SetProperty(ref _VideoId, value); }
+            set { SetProperty(ref _VideoId, value); OnPropertyChanged(nameof(VideoUrl)); }
         }
         private string _VideoId = null;
 

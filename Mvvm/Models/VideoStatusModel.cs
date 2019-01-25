@@ -19,8 +19,18 @@ namespace NicoV4.Mvvm.Models
 
         public VideoStatusModel()
         {
-            NewVideos = new List<string>();
-            SeeVideos = new List<string>();
+             NewVideos = new List<string>();
+             SeeVideos = new List<string>();
+
+             Disposed += (sender, e) =>
+             {
+                 // ﾌﾟﾛﾊﾟﾃｨに設定された内容を外部ﾌｧｲﾙに保存します。
+                 JsonConverter.Serialize(Variables.VideoStatusPath, this);
+
+                 Videos = null;
+                 NewVideos = null;
+                 SeeVideos = null;
+             };
         }
 
         // ****************************************************************************************************
@@ -131,18 +141,6 @@ namespace NicoV4.Mvvm.Models
             }
 
             SearchByWordHistorys.Insert(0, history);
-        }
-
-        protected override void OnDisposed()
-        {
-            // ﾌﾟﾛﾊﾟﾃｨに設定された内容を外部ﾌｧｲﾙに保存します。
-            JsonConverter.Serialize(Variables.VideoStatusPath, this);
-
-            Videos = null;
-            NewVideos = null;
-            SeeVideos = null;
-
-            base.OnDisposed();
         }
     }
 }

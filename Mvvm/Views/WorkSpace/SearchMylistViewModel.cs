@@ -49,7 +49,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
                         Resources.L_ADD_MYLIST,
                         Resources.M_ADD_MYLIST);
 
-                    AddMylist(NicoDataConverter.ToId(result));
+                    await AddMylist(NicoDataConverter.ToId(result));
                 });
             }
         }
@@ -63,9 +63,9 @@ namespace NicoV4.Mvvm.Views.WorkSpace
             get
             {
                 return _OnAddCopyUrl = _OnAddCopyUrl ?? new RelayCommand(
-                _ =>
+                async _ =>
                 {
-                    AddMylist(NicoDataConverter.ToId(Clipboard.GetText(TextDataFormat.Text)));
+                    await AddMylist(NicoDataConverter.ToId(Clipboard.GetText(TextDataFormat.Text)));
                 });
             }
         }
@@ -75,15 +75,14 @@ namespace NicoV4.Mvvm.Views.WorkSpace
         /// 共通の追加処理
         /// </summary>
         /// <param name="url">追加するURL</param>
-        private void AddMylist(string url)
+        private async Task AddMylist(string url)
         {
             SearchVideoByMylistModel mylist;
             try
             {
-                var tmp = MylistStatusModel.Instance.GetMylist(NicoDataConverter.ToId(url));
-                mylist = tmp;
+                mylist = await MylistStatusModel.Instance.GetMylist(NicoDataConverter.ToId(url));
 
-                if (!tmp.Videos.Any())
+                if (!mylist.Videos.Any())
                 {
                     throw new ArgumentException("ﾃﾞｰﾀ件数が0件");
                 }

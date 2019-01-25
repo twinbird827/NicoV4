@@ -31,6 +31,13 @@ namespace NicoV4.Mvvm.Views
             }
             Instance = this;
 
+            Disposed += (sender, e) =>
+            {
+                VideoStatusModel.Instance.Dispose();
+                MylistStatusModel.Instance.Dispose();
+                SettingModel.Instance.Dispose();
+            };
+
             // 初期表示ﾜｰｸｽﾍﾟｰｽの設定
             if (!string.IsNullOrWhiteSpace(SettingModel.Instance.MailAddress))
             {
@@ -77,7 +84,7 @@ namespace NicoV4.Mvvm.Views
         public WorkSpaceViewModel Current
         {
             get { return _Current; }
-            set { SetProperty(ref _Current, value); }
+            set { SetProperty(ref _Current, value, true); }
         }
         private WorkSpaceViewModel _Current;
 
@@ -221,23 +228,12 @@ namespace NicoV4.Mvvm.Views
             return DialogCoordinator.HideMetroDialogAsync(this, dialog, settings);
         }
 
-        protected override void OnDisposed()
-        {
-            VideoStatusModel.Instance.Dispose();
-            MylistStatusModel.Instance.Dispose();
-            SettingModel.Instance.Dispose();
-
-            base.OnDisposed();
-        }
-
         private async void Timer_Tick(object sender, EventArgs e)
         {
             var preload = await Task.WhenAll(MylistStatusModel.Instance.Favorites
                 .Select(async favorite =>
                 {
-                    var mylist = MylistStatusModel.Instance.GetMylist(favorite.Mylist);
-
-                    await mylist.Reload();
+                    var mylist = await MylistStatusModel.Instance.GetMylist(favorite.Mylist);
 
                     var videos = mylist.Videos
                         .Select(v => VideoStatusModel.Instance.GetVideo(v))

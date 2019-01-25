@@ -24,6 +24,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
         public SearchVideoByMylistViewModel(SearchVideoByMylistModel model) : base(model)
         {
             Source = model;
+            Source.AddOnPropertyChanged(this, OnPropertyChanged);
 
             this.Word = Source.MylistId;
             this.MylistTitle = Source.MylistTitle;
@@ -169,10 +170,8 @@ namespace NicoV4.Mvvm.Views.WorkSpace
         }
         private bool _IsCreatorVisible = default(bool);
 
-        protected override void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        protected void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            base.OnPropertyChanged(sender, e);
-
             switch (e.PropertyName)
             {
                 case nameof(MylistTitle):
@@ -194,7 +193,6 @@ namespace NicoV4.Mvvm.Views.WorkSpace
                     this.MylistDate = Source.MylistDate;
                     break;
             }
-
         }
 
         /// <summary>

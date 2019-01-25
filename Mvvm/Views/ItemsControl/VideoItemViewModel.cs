@@ -23,6 +23,7 @@ namespace NicoV4.Mvvm.Views.ItemsControl
         public VideoItemViewModel(VideoModel model) : base(model)
         {
             Source = model;
+            Source.AddOnPropertyChanged(this, OnPropertyChanged);
 
             VideoId = Source.VideoId;
             Title = Source.Title;
@@ -214,10 +215,8 @@ namespace NicoV4.Mvvm.Views.ItemsControl
         }
         private string _LastResBody = null;
 
-        protected override void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        protected void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            base.OnPropertyChanged(sender, e);
-
             switch (e.PropertyName)
             {
                 case nameof(VideoId):
