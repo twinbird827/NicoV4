@@ -54,7 +54,7 @@
                                Text="{x:Static properties:Resources.L_PASSWORD}" />
                     <PasswordBox Grid.Row="1" 
                                  Grid.Column="1" 
-                                 view:PasswordBoxChangedBehavior.Password="{Binding Password, Mode=TwoWay}"/>
+                                 view:PasswordBoxChangedBehavior.Password="{Binding Password}"/>
                 </Grid>
 
                 <Button Grid.Row="2"

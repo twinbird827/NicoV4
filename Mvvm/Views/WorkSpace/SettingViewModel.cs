@@ -22,7 +22,7 @@ namespace NicoV4.Mvvm.Views.WorkSpace
             Browser = SettingModel.Instance.Browser;
 
             // なぜか Password が string.Empty だと上手くﾊﾞｲﾝﾃﾞｨﾝｸﾞできないので対処
-            Password = string.IsNullOrEmpty(Password) ? null : Password;
+            //Password = string.IsNullOrEmpty(Password) ? null : Password;
 
             // ﾊﾞｰｼﾞｮﾝ情報の初期値
             var assm = System.Reflection.Assembly.GetExecutingAssembly();

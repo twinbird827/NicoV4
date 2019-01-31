@@ -209,3 +209,20 @@ namespace NicoV4.Mvvm.Models
 
     }
 }
+/*
+<item>
+  <title>【ゆっくり解説】世界の戦術・奇策・戦い紹介【アウステルリッツの戦い</title>
+  <link>http://www.nicovideo.jp/watch/sm29712796</link>
+  <guid isPermaLink="false">tag:nicovideo.jp,2016-09-25:/watch/1474729934</guid>
+  <pubDate>Sun, 25 Sep 2016 07:58:54 +0900</pubDate>
+  <description><![CDATA[<p class="nico-thumbnail"><img alt="【ゆっくり解説】世界の戦術・奇策・戦い紹介【アウステルリッツの戦い" src="https://tn.smilevideo.jp/smile?i=29712796.M" width="94" height="70" border="0"/></p><p class="nico-description">ザ☆新タレント登場！世界の様々な戦術や戦争をご紹介！今回もモデルになった人物がいますよ！栄えある1回目の戦いは『芸術』といわれたアウステルリッツ三帝会戦です。※動画内の肖像には年代よりイメージを優先させたものもありますマイリスト→mylist/57100985　次→sm29802171奇人・変人・偉人もどうぞ→sm29617623パート１マイリスト→mylist/55688483コミュあります→co2018467 副社長Twitter→@fukushachou9 絵：なのむら様よりBGM:煉獄庭園様より</p><p class="nico-info"><small><strong class="nico-info-length">9:53</strong>｜<strong class="nico-info-date">2016年09月25日 00：26：00</strong> 投稿</small></p><p class="nico-numbers"><small>再生：<strong class="nico-numbers-view">397,661</strong>  コメント：<strong class="nico-numbers-res">2,435</strong>  マイリスト：<strong class="nico-numbers-mylist">3,200</strong></small></p>]]></description>
+</item>
+
+    <item>
+  <title>【ゆっくり解説】世界の戦術・奇策・戦い紹介【トラシメヌスの戦い】</title>
+  <link>http://www.nicovideo.jp/watch/sm34377890</link>
+  <guid isPermaLink="false">tag:nicovideo.jp,2018-12-26:/watch/1545802625</guid>
+  <pubDate>Thu, 27 Dec 2018 00:29:17 +0900</pubDate>
+  <description><![CDATA[<p class="nico-thumbnail"><img alt="【ゆっくり解説】世界の戦術・奇策・戦い紹介【トラシメヌスの戦い】" src="https://tn.smilevideo.jp/smile?i=34377890.95216.M" width="94" height="70" border="0"/></p><p class="nico-description">日曜１９時半からもっと詳しく解説生放送します→lv317597961今回は史上最大の待ち伏せ！ハンニバルの【トラシメヌス湖畔の戦い】でございますトレビアの戦い、カンナエの戦いはマイリスにあるので良かったらどうぞー！なんとyoutubeにパワーアップ版がアップしておりますよ！→https://youtu.be/zQJR0d9lu-o前→sm34119455　マイリスト→mylist/57100985　次→ しばしお待ちを世界の奇人変人sm34290569戦国武将紹介sm33200014料理動画sm32754859もうちょい詳しい解説したりします→co2018467キャラ絵：なのむら様より→@nanomuraBGM:魔王魂様より・DOVA-SYNDROME・甘茶の音楽工房画像：Jonas Buddeberg, Bernhard Jenny　　　The Cartography and Geovisualization Group at Oregon State Universityシリーズ制作者:副社長Twitter→@fukushachou9 　　(参考資料はこちら)</p><p class="nico-info"><small><strong class="nico-info-length">9:59</strong>｜<strong class="nico-info-date">2018年12月26日 20：00：00</strong> 投稿</small></p><p class="nico-numbers"><small>再生：<strong class="nico-numbers-view">85,463</strong>  コメント：<strong class="nico-numbers-res">1,522</strong>  マイリスト：<strong class="nico-numbers-mylist">853</strong></small></p>]]></description>
+</item>
+ * */
