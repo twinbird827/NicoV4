@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Media.Imaging;
 using WpfUtilV2.Mvvm;
 using WpfUtilV2.Mvvm.Service;
@@ -42,7 +43,7 @@ namespace NicoV4.Mvvm.Models
         public string Title
         {
             get { return _Title; }
-            set { SetProperty(ref _Title, value); }
+            set { SetProperty(ref _Title, HttpUtility.HtmlDecode(value)); }
         }
         private string _Title = null;
 
@@ -52,7 +53,7 @@ namespace NicoV4.Mvvm.Models
         public string Description
         {
             get { return _Description; }
-            set { SetProperty(ref _Description, value); }
+            set { SetProperty(ref _Description, HttpUtility.HtmlDecode(value)); }
         }
         private string _Description = null;
 

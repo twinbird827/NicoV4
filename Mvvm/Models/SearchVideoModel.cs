@@ -67,7 +67,7 @@ namespace NicoV4.Mvvm.Models
                 }
 
                 var txt = await client.GetStringAsync(url);
-
+                
                 txt = txt.Replace("&copy;", "");
                 txt = txt.Replace("&nbsp;", " ");
                 txt = txt.Replace("&#x20;", " ");

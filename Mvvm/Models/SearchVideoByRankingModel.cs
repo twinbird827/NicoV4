@@ -80,6 +80,7 @@ namespace NicoV4.Mvvm.Models
                 video.StartTime = NicoDataConverter.ToRankingDatetime(desc, "nico-info-date");
                 video.ThumbnailUrl = (string)desc.Descendants("img").First().Attribute("src");
                 video.LengthSeconds = NicoDataConverter.ToLengthSeconds(lengthSecondsStr);
+                video.Description = (string)desc.Descendants("p").FirstOrDefault(x => (string)x.Attribute("class") == "nico-description");
 
                 // 自身に追加
                 Videos.Add(video.VideoId);
