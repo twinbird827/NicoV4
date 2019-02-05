@@ -67,12 +67,19 @@ namespace NicoV4.Mvvm.Models
 
             foreach (var item in channel.Descendants("item"))
             {
-                Videos.Add(UpdateVideoFromXml(
-                    item,
-                    "nico-info-total-view",
-                    "nico-info-total-mylist",
-                    "nico-info-total-res"
-                ));
+                try
+                {
+                    Videos.Add(UpdateVideoFromXml(
+                        item,
+                        "nico-info-total-view",
+                        "nico-info-total-mylist",
+                        "nico-info-total-res"
+                    ));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
 
                 //var desc = CreateDesc(item);
                 //var lengthSecondsStr = (string)desc

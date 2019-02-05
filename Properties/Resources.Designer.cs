@@ -22,7 +22,7 @@ namespace NicoV4.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace NicoV4.Properties {
         ///   このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NicoV4.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace NicoV4.Properties {
         ///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   hh\:mm\:ss に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string F_HHMMSS {
+        public static string F_HHMMSS {
             get {
                 return ResourceManager.GetString("F_HHMMSS", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   yy/MM/dd HH:mm:ss に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string F_YYMMDDHHMMSS {
+        public static string F_YYMMDDHHMMSS {
             get {
                 return ResourceManager.GetString("F_YYMMDDHHMMSS", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   yyyy/MM/dd HH:mm:ss に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string F_YYYYMMDDHHMMSS {
+        public static string F_YYYYMMDDHHMMSS {
             get {
                 return ResourceManager.GetString("F_YYYYMMDDHHMMSS", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   追加 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_ADD {
+        public static string L_ADD {
             get {
                 return ResourceManager.GetString("L_ADD", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   Add Children に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_ADD_CHILDREN {
+        public static string L_ADD_CHILDREN {
             get {
                 return ResourceManager.GetString("L_ADD_CHILDREN", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   マイリスト追加 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_ADD_MYLIST {
+        public static string L_ADD_MYLIST {
             get {
                 return ResourceManager.GetString("L_ADD_MYLIST", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   キャンセル に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_CANCEL {
+        public static string L_CANCEL {
             get {
                 return ResourceManager.GetString("L_CANCEL", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   カテゴリタグ に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_CATEGORY_TAG {
+        public static string L_CATEGORY_TAG {
             get {
                 return ResourceManager.GetString("L_CATEGORY_TAG", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   コメント に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_COMMENT_COUNTER {
+        public static string L_COMMENT_COUNTER {
             get {
                 return ResourceManager.GetString("L_COMMENT_COUNTER", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   Urlをコピー に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_COPY_URL {
+        public static string L_COPY_URL {
             get {
                 return ResourceManager.GetString("L_COPY_URL", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   著作権 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_COPYRIGHT {
+        public static string L_COPYRIGHT {
             get {
                 return ResourceManager.GetString("L_COPYRIGHT", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   削除 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_DELETE {
+        public static string L_DELETE {
             get {
                 return ResourceManager.GetString("L_DELETE", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   詳細 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_DESCRIPTION {
+        public static string L_DESCRIPTION {
             get {
                 return ResourceManager.GetString("L_DESCRIPTION", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   ダウンロード に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_DOWNLOAD {
+        public static string L_DOWNLOAD {
             get {
                 return ResourceManager.GetString("L_DOWNLOAD", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   JUMP に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_JUMP {
+        public static string L_JUMP {
             get {
                 return ResourceManager.GetString("L_JUMP", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   再生時間 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_LENGTH_SECONDS {
+        public static string L_LENGTH_SECONDS {
             get {
                 return ResourceManager.GetString("L_LENGTH_SECONDS", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   ログイン に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_LOGIN {
+        public static string L_LOGIN {
             get {
                 return ResourceManager.GetString("L_LOGIN", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   メールアドレス に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_MAIL_ADDRESS {
+        public static string L_MAIL_ADDRESS {
             get {
                 return ResourceManager.GetString("L_MAIL_ADDRESS", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   Menu に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_MENU {
+        public static string L_MENU {
             get {
                 return ResourceManager.GetString("L_MENU", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   mp3へ変換 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_MP3_CONVERT {
+        public static string L_MP3_CONVERT {
             get {
                 return ResourceManager.GetString("L_MP3_CONVERT", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   マイリスト に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_MYLIST_COUNTER {
+        public static string L_MYLIST_COUNTER {
             get {
                 return ResourceManager.GetString("L_MYLIST_COUNTER", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   名前 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_NAME {
+        public static string L_NAME {
             get {
                 return ResourceManager.GetString("L_NAME", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   OK に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_OK {
+        public static string L_OK {
             get {
                 return ResourceManager.GetString("L_OK", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   パスワード に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_PASSWORD {
+        public static string L_PASSWORD {
             get {
                 return ResourceManager.GetString("L_PASSWORD", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   Remove に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_REMOVE {
+        public static string L_REMOVE {
             get {
                 return ResourceManager.GetString("L_REMOVE", resourceCulture);
             }
@@ -288,7 +288,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   Rename に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_RENAME {
+        public static string L_RENAME {
             get {
                 return ResourceManager.GetString("L_RENAME", resourceCulture);
             }
@@ -297,7 +297,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   検索 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_SEARCH {
+        public static string L_SEARCH {
             get {
                 return ResourceManager.GetString("L_SEARCH", resourceCulture);
             }
@@ -306,7 +306,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   タグ検索 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_SEARCH_TAG {
+        public static string L_SEARCH_TAG {
             get {
                 return ResourceManager.GetString("L_SEARCH_TAG", resourceCulture);
             }
@@ -315,7 +315,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   ワード検索 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_SEARCH_WORD {
+        public static string L_SEARCH_WORD {
             get {
                 return ResourceManager.GetString("L_SEARCH_WORD", resourceCulture);
             }
@@ -324,7 +324,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   フォルダ選択 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_SELECT_DIRECTORY {
+        public static string L_SELECT_DIRECTORY {
             get {
                 return ResourceManager.GetString("L_SELECT_DIRECTORY", resourceCulture);
             }
@@ -333,7 +333,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   登録日時 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_START_TIME {
+        public static string L_START_TIME {
             get {
                 return ResourceManager.GetString("L_START_TIME", resourceCulture);
             }
@@ -342,7 +342,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   ステータス に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_STATUS {
+        public static string L_STATUS {
             get {
                 return ResourceManager.GetString("L_STATUS", resourceCulture);
             }
@@ -351,7 +351,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   とりあえずマイリストに追加 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_TEMPORARY_ADD {
+        public static string L_TEMPORARY_ADD {
             get {
                 return ResourceManager.GetString("L_TEMPORARY_ADD", resourceCulture);
             }
@@ -360,7 +360,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   とりあえずマイリストから削除 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_TEMPORARY_DELETE {
+        public static string L_TEMPORARY_DELETE {
             get {
                 return ResourceManager.GetString("L_TEMPORARY_DELETE", resourceCulture);
             }
@@ -369,7 +369,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   サムネイル に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_THUMBNAIL {
+        public static string L_THUMBNAIL {
             get {
                 return ResourceManager.GetString("L_THUMBNAIL", resourceCulture);
             }
@@ -378,7 +378,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   タイトル に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_TITLE {
+        public static string L_TITLE {
             get {
                 return ResourceManager.GetString("L_TITLE", resourceCulture);
             }
@@ -387,7 +387,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   ログイン設定 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_TITLE_LOGIN {
+        public static string L_TITLE_LOGIN {
             get {
                 return ResourceManager.GetString("L_TITLE_LOGIN", resourceCulture);
             }
@@ -396,7 +396,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   バージョン情報 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_TITLE_VERSION {
+        public static string L_TITLE_VERSION {
             get {
                 return ResourceManager.GetString("L_TITLE_VERSION", resourceCulture);
             }
@@ -405,7 +405,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   更新日時 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_UPDATEDATE {
+        public static string L_UPDATEDATE {
             get {
                 return ResourceManager.GetString("L_UPDATEDATE", resourceCulture);
             }
@@ -414,7 +414,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   ユーザID に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_USER_ID {
+        public static string L_USER_ID {
             get {
                 return ResourceManager.GetString("L_USER_ID", resourceCulture);
             }
@@ -423,7 +423,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   ユーザ名 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_USER_NAME {
+        public static string L_USER_NAME {
             get {
                 return ResourceManager.GetString("L_USER_NAME", resourceCulture);
             }
@@ -432,7 +432,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   バージョン に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_VERSION {
+        public static string L_VERSION {
             get {
                 return ResourceManager.GetString("L_VERSION", resourceCulture);
             }
@@ -441,7 +441,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   再生数 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string L_VIEW_COUNTER {
+        public static string L_VIEW_COUNTER {
             get {
                 return ResourceManager.GetString("L_VIEW_COUNTER", resourceCulture);
             }
@@ -450,7 +450,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   追加するフォルダ名を入力してください。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string M_ADD_CHILDREN_DESCRIPTION {
+        public static string M_ADD_CHILDREN_DESCRIPTION {
             get {
                 return ResourceManager.GetString("M_ADD_CHILDREN_DESCRIPTION", resourceCulture);
             }
@@ -459,7 +459,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   追加するマイリストのUrlを入力してください。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string M_ADD_MYLIST {
+        public static string M_ADD_MYLIST {
             get {
                 return ResourceManager.GetString("M_ADD_MYLIST", resourceCulture);
             }
@@ -468,7 +468,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   追加したい動画のURLか &quot;sm&quot; から始まる動画IDを入力してください。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string M_ADD_TEMPORARY {
+        public static string M_ADD_TEMPORARY {
             get {
                 return ResourceManager.GetString("M_ADD_TEMPORARY", resourceCulture);
             }
@@ -477,7 +477,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   マイリストを追加するフォルダを選択してください。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string M_MYLIST_SELECT_DIALOG_DESCRIPTION {
+        public static string M_MYLIST_SELECT_DIALOG_DESCRIPTION {
             get {
                 return ResourceManager.GetString("M_MYLIST_SELECT_DIALOG_DESCRIPTION", resourceCulture);
             }
@@ -487,7 +487,7 @@ namespace NicoV4.Properties {
         ///   選択したフォルダを削除します。
         ///よろしいですか？ に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string M_REMOVE_DESCRIPTION {
+        public static string M_REMOVE_DESCRIPTION {
             get {
                 return ResourceManager.GetString("M_REMOVE_DESCRIPTION", resourceCulture);
             }
@@ -496,7 +496,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   変更後の名前を入力してください。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string M_RENAME_DESCRIPTION {
+        public static string M_RENAME_DESCRIPTION {
             get {
                 return ResourceManager.GetString("M_RENAME_DESCRIPTION", resourceCulture);
             }
@@ -505,7 +505,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   すべて に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_ALL {
+        public static string RANK_CATEGORY_ALL {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_ALL", resourceCulture);
             }
@@ -514,7 +514,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   動物 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_ANIMAL {
+        public static string RANK_CATEGORY_ANIMAL {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_ANIMAL", resourceCulture);
             }
@@ -523,7 +523,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   アニメ に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_ANIME {
+        public static string RANK_CATEGORY_ANIME {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_ANIME", resourceCulture);
             }
@@ -532,7 +532,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   チャット に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_CHAT {
+        public static string RANK_CATEGORY_CHAT {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_CHAT", resourceCulture);
             }
@@ -541,7 +541,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   料理 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_COOKING {
+        public static string RANK_CATEGORY_COOKING {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_COOKING", resourceCulture);
             }
@@ -550,7 +550,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   踊ってみた に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_DANCE {
+        public static string RANK_CATEGORY_DANCE {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_DANCE", resourceCulture);
             }
@@ -559,7 +559,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   日記 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_DIARY {
+        public static string RANK_CATEGORY_DIARY {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_DIARY", resourceCulture);
             }
@@ -568,7 +568,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   ent に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_ENT {
+        public static string RANK_CATEGORY_ENT {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_ENT", resourceCulture);
             }
@@ -577,7 +577,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   ゲーム に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_GAME {
+        public static string RANK_CATEGORY_GAME {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_GAME", resourceCulture);
             }
@@ -586,7 +586,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   歴史 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_HISTORY {
+        public static string RANK_CATEGORY_HISTORY {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_HISTORY", resourceCulture);
             }
@@ -595,7 +595,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   lecture に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_LECTURE {
+        public static string RANK_CATEGORY_LECTURE {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_LECTURE", resourceCulture);
             }
@@ -604,7 +604,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   音楽 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_MUSIC {
+        public static string RANK_CATEGORY_MUSIC {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_MUSIC", resourceCulture);
             }
@@ -613,7 +613,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   自然 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_NATURE {
+        public static string RANK_CATEGORY_NATURE {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_NATURE", resourceCulture);
             }
@@ -622,7 +622,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   other に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_OTHER {
+        public static string RANK_CATEGORY_OTHER {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_OTHER", resourceCulture);
             }
@@ -631,7 +631,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   play に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_PLAY {
+        public static string RANK_CATEGORY_PLAY {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_PLAY", resourceCulture);
             }
@@ -640,7 +640,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   politics に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_POLITICS {
+        public static string RANK_CATEGORY_POLITICS {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_POLITICS", resourceCulture);
             }
@@ -649,7 +649,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   que に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_QUE {
+        public static string RANK_CATEGORY_QUE {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_QUE", resourceCulture);
             }
@@ -658,7 +658,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   R-18 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_R18 {
+        public static string RANK_CATEGORY_R18 {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_R18", resourceCulture);
             }
@@ -667,7 +667,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   ラジオ に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_RADIO {
+        public static string RANK_CATEGORY_RADIO {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_RADIO", resourceCulture);
             }
@@ -676,7 +676,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   科学 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_SCIENCE {
+        public static string RANK_CATEGORY_SCIENCE {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_SCIENCE", resourceCulture);
             }
@@ -685,7 +685,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   歌ってみた に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_SING {
+        public static string RANK_CATEGORY_SING {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_SING", resourceCulture);
             }
@@ -694,7 +694,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   スポーツ に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_SPORT {
+        public static string RANK_CATEGORY_SPORT {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_SPORT", resourceCulture);
             }
@@ -703,7 +703,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   test に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_TEST {
+        public static string RANK_CATEGORY_TEST {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_TEST", resourceCulture);
             }
@@ -712,7 +712,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   tw に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_CATEGORY_TW {
+        public static string RANK_CATEGORY_TW {
             get {
                 return ResourceManager.GetString("RANK_CATEGORY_TW", resourceCulture);
             }
@@ -721,7 +721,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   日間 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_PERIOD_DAILY {
+        public static string RANK_PERIOD_DAILY {
             get {
                 return ResourceManager.GetString("RANK_PERIOD_DAILY", resourceCulture);
             }
@@ -730,7 +730,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   時間 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_PERIOD_HOURLY {
+        public static string RANK_PERIOD_HOURLY {
             get {
                 return ResourceManager.GetString("RANK_PERIOD_HOURLY", resourceCulture);
             }
@@ -739,7 +739,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   月間 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_PERIOD_MONTHLY {
+        public static string RANK_PERIOD_MONTHLY {
             get {
                 return ResourceManager.GetString("RANK_PERIOD_MONTHLY", resourceCulture);
             }
@@ -748,7 +748,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   合計 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_PERIOD_TOTAL {
+        public static string RANK_PERIOD_TOTAL {
             get {
                 return ResourceManager.GetString("RANK_PERIOD_TOTAL", resourceCulture);
             }
@@ -757,7 +757,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   週間 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_PERIOD_WEEKLY {
+        public static string RANK_PERIOD_WEEKLY {
             get {
                 return ResourceManager.GetString("RANK_PERIOD_WEEKLY", resourceCulture);
             }
@@ -766,7 +766,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   総合 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_TARGET_FAV {
+        public static string RANK_TARGET_FAV {
             get {
                 return ResourceManager.GetString("RANK_TARGET_FAV", resourceCulture);
             }
@@ -775,7 +775,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   マイリスト数 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_TARGET_MYLIST {
+        public static string RANK_TARGET_MYLIST {
             get {
                 return ResourceManager.GetString("RANK_TARGET_MYLIST", resourceCulture);
             }
@@ -784,7 +784,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   コメント数 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_TARGET_RES {
+        public static string RANK_TARGET_RES {
             get {
                 return ResourceManager.GetString("RANK_TARGET_RES", resourceCulture);
             }
@@ -793,7 +793,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   再生数 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string RANK_TARGET_VIEW {
+        public static string RANK_TARGET_VIEW {
             get {
                 return ResourceManager.GetString("RANK_TARGET_VIEW", resourceCulture);
             }
@@ -802,7 +802,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   コメントが新しい順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_COMMENT0 {
+        public static string SORT_COMMENT0 {
             get {
                 return ResourceManager.GetString("SORT_COMMENT0", resourceCulture);
             }
@@ -811,7 +811,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   コメントが古い順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_COMMENT1 {
+        public static string SORT_COMMENT1 {
             get {
                 return ResourceManager.GetString("SORT_COMMENT1", resourceCulture);
             }
@@ -820,7 +820,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   コメントが多い順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_COMMENTRES0 {
+        public static string SORT_COMMENTRES0 {
             get {
                 return ResourceManager.GetString("SORT_COMMENTRES0", resourceCulture);
             }
@@ -829,7 +829,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   コメントが少ない順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_COMMENTRES1 {
+        public static string SORT_COMMENTRES1 {
             get {
                 return ResourceManager.GetString("SORT_COMMENTRES1", resourceCulture);
             }
@@ -838,7 +838,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   再生時間が長い順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_LENGTH0 {
+        public static string SORT_LENGTH0 {
             get {
                 return ResourceManager.GetString("SORT_LENGTH0", resourceCulture);
             }
@@ -847,7 +847,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   再生時間が短い順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_LENGTH1 {
+        public static string SORT_LENGTH1 {
             get {
                 return ResourceManager.GetString("SORT_LENGTH1", resourceCulture);
             }
@@ -856,7 +856,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   マイリストコメント昇順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_MYCOMMENT0 {
+        public static string SORT_MYCOMMENT0 {
             get {
                 return ResourceManager.GetString("SORT_MYCOMMENT0", resourceCulture);
             }
@@ -865,7 +865,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   マイリストコメント降順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_MYCOMMENT1 {
+        public static string SORT_MYCOMMENT1 {
             get {
                 return ResourceManager.GetString("SORT_MYCOMMENT1", resourceCulture);
             }
@@ -874,7 +874,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   登録が古い順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_MYREG0 {
+        public static string SORT_MYREG0 {
             get {
                 return ResourceManager.GetString("SORT_MYREG0", resourceCulture);
             }
@@ -883,7 +883,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   登録が新しい順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_MYREG1 {
+        public static string SORT_MYREG1 {
             get {
                 return ResourceManager.GetString("SORT_MYREG1", resourceCulture);
             }
@@ -892,7 +892,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   マイリスト登録が多い順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_MYREGRES0 {
+        public static string SORT_MYREGRES0 {
             get {
                 return ResourceManager.GetString("SORT_MYREGRES0", resourceCulture);
             }
@@ -901,7 +901,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   マイリスト登録が少ない順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_MYREGRES1 {
+        public static string SORT_MYREGRES1 {
             get {
                 return ResourceManager.GetString("SORT_MYREGRES1", resourceCulture);
             }
@@ -910,7 +910,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   タイトル昇順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_TITLE0 {
+        public static string SORT_TITLE0 {
             get {
                 return ResourceManager.GetString("SORT_TITLE0", resourceCulture);
             }
@@ -919,7 +919,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   タイトル降順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_TITLE1 {
+        public static string SORT_TITLE1 {
             get {
                 return ResourceManager.GetString("SORT_TITLE1", resourceCulture);
             }
@@ -928,7 +928,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   投稿が新しい順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_UPLOAD0 {
+        public static string SORT_UPLOAD0 {
             get {
                 return ResourceManager.GetString("SORT_UPLOAD0", resourceCulture);
             }
@@ -937,7 +937,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   投稿が古い順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_UPLOAD1 {
+        public static string SORT_UPLOAD1 {
             get {
                 return ResourceManager.GetString("SORT_UPLOAD1", resourceCulture);
             }
@@ -946,7 +946,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   再生数が多い順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_VIEWRES0 {
+        public static string SORT_VIEWRES0 {
             get {
                 return ResourceManager.GetString("SORT_VIEWRES0", resourceCulture);
             }
@@ -955,7 +955,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   再生数が少ない順 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SORT_VIEWRES1 {
+        public static string SORT_VIEWRES1 {
             get {
                 return ResourceManager.GetString("SORT_VIEWRES1", resourceCulture);
             }
@@ -964,7 +964,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   サムネ大 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string THUMB_SIZE_L {
+        public static string THUMB_SIZE_L {
             get {
                 return ResourceManager.GetString("THUMB_SIZE_L", resourceCulture);
             }
@@ -973,7 +973,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   サムネ中 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string THUMB_SIZE_M {
+        public static string THUMB_SIZE_M {
             get {
                 return ResourceManager.GetString("THUMB_SIZE_M", resourceCulture);
             }
@@ -982,7 +982,7 @@ namespace NicoV4.Properties {
         /// <summary>
         ///   サムネ小 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string THUMB_SIZE_S {
+        public static string THUMB_SIZE_S {
             get {
                 return ResourceManager.GetString("THUMB_SIZE_S", resourceCulture);
             }
