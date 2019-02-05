@@ -68,11 +68,11 @@ namespace NicoV4.Mvvm.Models
 
                 var txt = await client.GetStringAsync(url);
                 
-                txt = txt.Replace("&copy;", "");
-                txt = txt.Replace("&nbsp;", " ");
-                txt = txt.Replace("&#x20;", " ");
+                //txt = txt.Replace("&copy;", "");
+                //txt = txt.Replace("&nbsp;", " ");
+                //txt = txt.Replace("&#x20;", " ");
 
-                txt = txt.Replace("&", "&amp;");
+                //txt = txt.Replace("&", "&amp;");
 
                 return txt;
             }
@@ -88,23 +88,23 @@ namespace NicoV4.Mvvm.Models
             return XDocument.Load(new StringReader(await GetStringAsync(url))).Root;
         }
 
-        /// <summary>
-        /// Urlｴﾝｺｰﾄﾞ文字列から文字列に変換します。
-        /// </summary>
-        /// <param name="txt"></param>
-        /// <returns></returns>
-        private string FromUrlEncode(string txt)
-        {
-            txt = HttpUtility.UrlDecode(txt);
-            txt = txt.Replace("&lt;", "<");
-            txt = txt.Replace("&gt;", ">");
-            txt = txt.Replace("&quot;", "\"");
-            txt = txt.Replace("&apos;", "'");
-            txt = txt.Replace("&amp;", "&");
-            txt = txt.Replace("&nbsp;", "\n");
+        ///// <summary>
+        ///// Urlｴﾝｺｰﾄﾞ文字列から文字列に変換します。
+        ///// </summary>
+        ///// <param name="txt"></param>
+        ///// <returns></returns>
+        //private string FromUrlEncode(string txt)
+        //{
+        //    txt = HttpUtility.UrlDecode(txt);
+        //    txt = txt.Replace("&lt;", "<");
+        //    txt = txt.Replace("&gt;", ">");
+        //    txt = txt.Replace("&quot;", "\"");
+        //    txt = txt.Replace("&apos;", "'");
+        //    txt = txt.Replace("&amp;", "&");
+        //    txt = txt.Replace("&nbsp;", "\n");
 
-            return txt;
-        }
+        //    return txt;
+        //}
 
     }
 }
