@@ -266,43 +266,43 @@
     <value>変更後の名前を入力してください。</value>
   </data>
   <data name="RANK_CATEGORY_ALL" xml:space="preserve">
-    <value>all</value>
+    <value>すべて</value>
   </data>
   <data name="RANK_CATEGORY_ANIMAL" xml:space="preserve">
-    <value>animal</value>
+    <value>動物</value>
   </data>
   <data name="RANK_CATEGORY_ANIME" xml:space="preserve">
-    <value>anime</value>
+    <value>アニメ</value>
   </data>
   <data name="RANK_CATEGORY_CHAT" xml:space="preserve">
-    <value>chat</value>
+    <value>チャット</value>
   </data>
   <data name="RANK_CATEGORY_COOKING" xml:space="preserve">
-    <value>cooking</value>
+    <value>料理</value>
   </data>
   <data name="RANK_CATEGORY_DANCE" xml:space="preserve">
-    <value>dance</value>
+    <value>踊ってみた</value>
   </data>
   <data name="RANK_CATEGORY_DIARY" xml:space="preserve">
-    <value>diary</value>
+    <value>日記</value>
   </data>
   <data name="RANK_CATEGORY_ENT" xml:space="preserve">
     <value>ent</value>
   </data>
   <data name="RANK_CATEGORY_GAME" xml:space="preserve">
-    <value>game</value>
+    <value>ゲーム</value>
   </data>
   <data name="RANK_CATEGORY_HISTORY" xml:space="preserve">
-    <value>history</value>
+    <value>歴史</value>
   </data>
   <data name="RANK_CATEGORY_LECTURE" xml:space="preserve">
     <value>lecture</value>
   </data>
   <data name="RANK_CATEGORY_MUSIC" xml:space="preserve">
-    <value>music</value>
+    <value>音楽</value>
   </data>
   <data name="RANK_CATEGORY_NATURE" xml:space="preserve">
-    <value>nature</value>
+    <value>自然</value>
   </data>
   <data name="RANK_CATEGORY_OTHER" xml:space="preserve">
     <value>other</value>
@@ -317,19 +317,19 @@
     <value>que</value>
   </data>
   <data name="RANK_CATEGORY_R18" xml:space="preserve">
-    <value>r18</value>
+    <value>R-18</value>
   </data>
   <data name="RANK_CATEGORY_RADIO" xml:space="preserve">
-    <value>radio</value>
+    <value>ラジオ</value>
   </data>
   <data name="RANK_CATEGORY_SCIENCE" xml:space="preserve">
-    <value>science</value>
+    <value>科学</value>
   </data>
   <data name="RANK_CATEGORY_SING" xml:space="preserve">
-    <value>sing</value>
+    <value>歌ってみた</value>
   </data>
   <data name="RANK_CATEGORY_SPORT" xml:space="preserve">
-    <value>sport</value>
+    <value>スポーツ</value>
   </data>
   <data name="RANK_CATEGORY_TEST" xml:space="preserve">
     <value>test</value>
@@ -338,31 +338,31 @@
     <value>tw</value>
   </data>
   <data name="RANK_PERIOD_DAILY" xml:space="preserve">
-    <value>daily</value>
+    <value>日間</value>
   </data>
   <data name="RANK_PERIOD_HOURLY" xml:space="preserve">
-    <value>hourly</value>
+    <value>時間</value>
   </data>
   <data name="RANK_PERIOD_MONTHLY" xml:space="preserve">
-    <value>monthly</value>
+    <value>月間</value>
   </data>
   <data name="RANK_PERIOD_TOTAL" xml:space="preserve">
-    <value>total</value>
+    <value>合計</value>
   </data>
   <data name="RANK_PERIOD_WEEKLY" xml:space="preserve">
-    <value>weekly</value>
+    <value>週間</value>
   </data>
   <data name="RANK_TARGET_FAV" xml:space="preserve">
-    <value>fav</value>
+    <value>総合</value>
   </data>
   <data name="RANK_TARGET_MYLIST" xml:space="preserve">
-    <value>mylist</value>
+    <value>マイリスト数</value>
   </data>
   <data name="RANK_TARGET_RES" xml:space="preserve">
-    <value>res</value>
+    <value>コメント数</value>
   </data>
   <data name="RANK_TARGET_VIEW" xml:space="preserve">
-    <value>view</value>
+    <value>再生数</value>
   </data>
   <data name="SORT_COMMENT0" xml:space="preserve">
     <value>コメントが新しい順</value>

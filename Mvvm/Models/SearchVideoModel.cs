@@ -1,4 +1,5 @@
-﻿using StatefulModel;
+﻿using NicoV4.Common;
+using StatefulModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -106,5 +107,44 @@ namespace NicoV4.Mvvm.Models
         //    return txt;
         //}
 
+        protected string UpdateVideoFromXml(XElement item, string view, string mylist, string comment)
+        {
+            // 明細部をXDocumentで読み込むために整形
+            var descriptionString = item.Element("description").Value;
+            descriptionString = HttpUtility.HtmlDecode(descriptionString);
+            descriptionString = descriptionString.Replace("&", "&amp;");
+            descriptionString = descriptionString.Replace("'", "&apos;");
+
+            // 明細部読み込み
+            var desc = XDocument.Load(new StringReader($"<root>{descriptionString}</root>")).Root;
+
+            // 動画時間
+            var lengthSecondsStr = (string)desc
+                    .Descendants("strong")
+                    .Where(x => (string)x.Attribute("class") == "nico-info-length")
+                    .First();
+
+            var video = VideoStatusModel.Instance.GetVideo(NicoDataConverter.ToId(item.Element("link").Value));
+
+            video.Title = item.Element("title").Value;
+            video.ViewCounter = NicoDataConverter.ToCounter(desc, view);
+            video.MylistCounter = NicoDataConverter.ToCounter(desc, mylist);
+            video.CommentCounter = NicoDataConverter.ToCounter(desc, comment);
+            video.StartTime = NicoDataConverter.ToRankingDatetime(desc, "nico-info-date");
+            video.ThumbnailUrl = (string)desc.Descendants("img").First().Attribute("src");
+            video.LengthSeconds = NicoDataConverter.ToLengthSeconds(lengthSecondsStr);
+            video.Description = (string)desc.Descendants("p").FirstOrDefault(x => (string)x.Attribute("class") == "nico-description");
+
+            return video.VideoId;
+        }
+        protected XElement CreateDesc(XElement item)
+        {
+            var descriptionString = item.Element("description").Value;
+
+            descriptionString = HttpUtility.HtmlDecode(descriptionString);
+            descriptionString = descriptionString.Replace("&", "&amp;");
+            descriptionString = descriptionString.Replace("'", "&apos;");
+            return XDocument.Load(new StringReader($"<root>{descriptionString}</root>")).Root;
+        }
     }
 }

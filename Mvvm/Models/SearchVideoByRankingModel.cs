@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Xml.Linq;
 using WpfUtilV2.Mvvm.Service;
 
@@ -66,24 +67,31 @@ namespace NicoV4.Mvvm.Models
 
             foreach (var item in channel.Descendants("item"))
             {
-                var desc = XDocument.Load(new StringReader("<root>" + item.Element("description").Value + "</root>")).Root;
-                var lengthSecondsStr = (string)desc
-                        .Descendants("strong")
-                        .Where(x => (string)x.Attribute("class") == "nico-info-length")
-                        .First();
-                var video = VideoStatusModel.Instance.GetVideo(NicoDataConverter.ToId(item.Element("link").Value));
+                Videos.Add(UpdateVideoFromXml(
+                    item,
+                    "nico-info-total-view",
+                    "nico-info-total-mylist",
+                    "nico-info-total-res"
+                ));
 
-                video.Title = item.Element("title").Value;
-                video.ViewCounter = NicoDataConverter.ToCounter(desc, "nico-info-total-view");
-                video.MylistCounter = NicoDataConverter.ToCounter(desc, "nico-info-total-res");
-                video.CommentCounter = NicoDataConverter.ToCounter(desc, "nico-info-total-mylist");
-                video.StartTime = NicoDataConverter.ToRankingDatetime(desc, "nico-info-date");
-                video.ThumbnailUrl = (string)desc.Descendants("img").First().Attribute("src");
-                video.LengthSeconds = NicoDataConverter.ToLengthSeconds(lengthSecondsStr);
-                video.Description = (string)desc.Descendants("p").FirstOrDefault(x => (string)x.Attribute("class") == "nico-description");
+                //var desc = CreateDesc(item);
+                //var lengthSecondsStr = (string)desc
+                //        .Descendants("strong")
+                //        .Where(x => (string)x.Attribute("class") == "nico-info-length")
+                //        .First();
+                //var video = VideoStatusModel.Instance.GetVideo(NicoDataConverter.ToId(item.Element("link").Value));
 
-                // 自身に追加
-                Videos.Add(video.VideoId);
+                //video.Title = item.Element("title").Value;
+                //video.ViewCounter = NicoDataConverter.ToCounter(desc, "nico-info-total-view");
+                //video.MylistCounter = NicoDataConverter.ToCounter(desc, "nico-info-total-res");
+                //video.CommentCounter = NicoDataConverter.ToCounter(desc, "nico-info-total-mylist");
+                //video.StartTime = NicoDataConverter.ToRankingDatetime(desc, "nico-info-date");
+                //video.ThumbnailUrl = (string)desc.Descendants("img").First().Attribute("src");
+                //video.LengthSeconds = NicoDataConverter.ToLengthSeconds(lengthSecondsStr);
+                //video.Description = (string)desc.Descendants("p").FirstOrDefault(x => (string)x.Attribute("class") == "nico-description");
+
+                //// 自身に追加
+                //Videos.Add(video.VideoId);
             }
         }
     }

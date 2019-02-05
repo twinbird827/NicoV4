@@ -30,7 +30,7 @@ namespace NicoV4.Mvvm.ComboItems
         {
             _Items = new ObservableSynchronizedCollection<ComboboxItemModel>
             {
-                new ComboboxItemModel() { Value = "all", Description = Resources.RANK_CATEGORY_MUSIC },
+                new ComboboxItemModel() { Value = "all", Description = Resources.RANK_CATEGORY_ALL },
                 new ComboboxItemModel() { Value = "music", Description = Resources.RANK_CATEGORY_MUSIC },
                 new ComboboxItemModel() { Value = "ent", Description = Resources.RANK_CATEGORY_ENT },
                 new ComboboxItemModel() { Value = "anime", Description = Resources.RANK_CATEGORY_ANIME },
