@@ -33,9 +33,9 @@ namespace NicoV4.Mvvm.Models
 
             foreach (dynamic item in json["mylistitem"])
             {
-                var video = VideoStatusModel.Instance.GetVideo((string)item["item_data"]["video_id"]);
+                var video = VideoStatusModel.Instance.GetVideo((string)item["item_id"]);
 
-                video.VideoUrl = item["item_data"]["video_id"];
+                video.VideoUrl = item["item_id"];
                 video.Title = item["item_data"]["title"];
                 video.Description = item["description"];
                 //video.Tags = data["tags"];
