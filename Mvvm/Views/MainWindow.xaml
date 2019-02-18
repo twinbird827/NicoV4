@@ -11,7 +11,7 @@
                       xmlns:be="clr-namespace:WpfUtilV2.Mvvm.Behaviors;assembly=WpfUtilV2"
                       SaveWindowPosition="True"
                       Dialog:DialogParticipation.Register="{Binding}"
-                      be:WindowClosedBehavior.ViewModel="{Binding}"
+                      be:WindowClosedBehavior.Disposable="{Binding}"
                       mc:Ignorable="d"
                       Title="MainWindow">
     <Controls:MetroWindow.DataContext>
