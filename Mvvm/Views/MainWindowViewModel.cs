@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Threading;
 using WpfUtilV2.Common;
+using WpfUtilV2.Extensions;
 using WpfUtilV2.Mvvm;
 using WpfUtilV2.Mvvm.Service;
 
@@ -230,7 +231,7 @@ namespace NicoV4.Mvvm.Views
 
         private async void Timer_Tick(object sender, EventArgs e)
         {
-            var preload = await Task.WhenAll(MylistStatusModel.Instance.Favorites
+            var preload = await MylistStatusModel.Instance.Favorites
                 .Select(async favorite =>
                 {
                     var mylist = await MylistStatusModel.Instance.GetMylist(favorite.Mylist);
@@ -239,66 +240,37 @@ namespace NicoV4.Mvvm.Views
                         .Select(v => VideoStatusModel.Instance.GetVideo(v))
                         .OrderBy(v => v.StartTime);
 
-                    foreach (var video in videos)
+                    //foreach (var video in videos)
+                    //{
+                    //    if (favorite.LastConfirmDatetime < video.StartTime &&
+                    //        !SearchVideoByTemporaryModel.Instance.Videos.Any(s => s == video.VideoId))
+                    //    {
+                    //        favorite.LastConfirmDatetime = video.StartTime;
+                    //        await SearchVideoByTemporaryModel.Instance.AddVideo(video.VideoId);
+                    //        TemporaryNewVideo = true;
+                    //    }
+                    //}
+
+                    return new
                     {
-                        if (favorite.LastConfirmDatetime < video.StartTime &&
-                            !SearchVideoByTemporaryModel.Instance.Videos.Any(s => s == video.VideoId))
-                        {
-                            favorite.LastConfirmDatetime = video.StartTime;
-                            await SearchVideoByTemporaryModel.Instance.AddVideo(video.VideoId);
-                            TemporaryNewVideo = true;
-                        }
+                        Favorite = favorite,
+                        Videos = videos
+                    };
+                }).WhenAll();
+
+            foreach (var item in preload)
+            {
+                foreach (var video in item.Videos)
+                {
+                    if (item.Favorite.LastConfirmDatetime < video.StartTime &&
+                        !SearchVideoByTemporaryModel.Instance.Videos.Any(s => s == video.VideoId))
+                    {
+                        item.Favorite.LastConfirmDatetime = video.StartTime;
+                        await SearchVideoByTemporaryModel.Instance.AddVideo(video.VideoId);
+                        TemporaryNewVideo = true;
                     }
-
-                    return favorite;
-                }));
-
-
-            //var preload = await Task.WhenAll(
-            //    MylistStatusModel.Instance.Favorites
-            //    .Select(favorite => new
-            //    {
-            //        Mylist = MylistStatusModel.Instance.GetMylist(favorite.Mylist),
-            //        Favorite = favorite
-            //    })
-            //    .Select(async mylist =>
-            //    {
-            //        await mylist.Mylist.Reload();
-            //        return new
-            //        {
-            //            Videos = mylist.Mylist.Videos,
-            //            Favorite = mylist.Favorite
-            //        };
-            //    })
-            //);
-
-            //var videos = preload
-            //    .SelectMany(video => video)
-            //    .Select(video => VideoStatusModel.Instance.GetVideo(video))
-            //    .Where(video => datetime < video.StartTime)
-            //    .Select(video => video.VideoId)
-            //    .Where(id => !SearchVideoByTemporaryModel.Instance.Videos.Any(s => s == id));
-
-            //// ﾋﾞﾃﾞｵを追加
-            //await Task.WhenAll(
-            //    videos.Select(async id =>
-            //    {
-            //        VideoStatusModel.Instance.NewVideos.Add(id);
-            //        await SearchVideoByTemporaryModel.Instance.AddVideo(id);
-            //    })
-            //);
-
-            //// ﾃﾝﾎﾟﾗﾘに追加した
-            //TemporaryNewVideo = videos.Any();
-
-            ////foreach (var id in videos)
-            ////{
-            ////    // ﾋﾞﾃﾞｵを追加
-            ////    await SearchVideoByTemporaryModel.Instance.AddVideo(id);
-            ////}
-
-            //// 確認日時更新
-            //SettingModel.Instance.LastConfirmDatetime = DateTime.Now;
+                }
+            }
         }
 
         private void SearchVideoByTemporaryModel_OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
