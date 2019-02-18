@@ -11,7 +11,6 @@ using WpfUtilV2.Mvvm;
 
 namespace NicoV4.Mvvm.Models
 {
-    [DataContract]
     public class MylistStatusModel : BindableBase
     {
         public static MylistStatusModel Instance { get; private set; } = GetInstance();

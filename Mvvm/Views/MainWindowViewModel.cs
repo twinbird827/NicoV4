@@ -34,9 +34,9 @@ namespace NicoV4.Mvvm.Views
 
             Disposed += (sender, e) =>
             {
-                VideoStatusModel.Instance.Dispose();
                 MylistStatusModel.Instance.Dispose();
                 SettingModel.Instance.Dispose();
+                VideoStatusModel.Instance.Dispose();
             };
 
             // 初期表示ﾜｰｸｽﾍﾟｰｽの設定

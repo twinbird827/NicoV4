@@ -12,12 +12,11 @@ using WpfUtilV2.Mvvm;
 
 namespace NicoV4.Mvvm.Models
 {
-    [DataContract]
     public class VideoStatusModel : BindableBase
     {
         public static VideoStatusModel Instance { get; private set; } = GetInstance();
 
-        public VideoStatusModel()
+        private VideoStatusModel()
         {
              NewVideos = new List<string>();
              SeeVideos = new List<string>();
