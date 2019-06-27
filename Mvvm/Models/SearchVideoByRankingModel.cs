@@ -58,9 +58,9 @@ namespace NicoV4.Mvvm.Models
                 return;
             }
 
-            const string url = "http://www.nicovideo.jp/ranking/{0}/{1}/{2}?rss=2.0";
-
-            var channel = (await GetXmlAsync(string.Format(url, Target, Period, Category)))
+            const string url = "http://www.nicovideo.jp/ranking/genre/{0}?tag={1}&term={2}&rss=2.0&lang=ja-jp";
+            var urltmp = string.Format(url, Target, Category, Period);
+            var channel = (await GetXmlAsync(urltmp))
                     .Descendants("channel").First();
 
             Videos.Clear();

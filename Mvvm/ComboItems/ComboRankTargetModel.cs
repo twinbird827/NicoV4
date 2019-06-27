@@ -30,10 +30,25 @@ namespace NicoV4.Mvvm.ComboItems
         {
             _Items = new ObservableSynchronizedCollection<ComboboxItemModel>
             {
-                new ComboboxItemModel() { Value = "fav", Description = Resources.RANK_TARGET_FAV },
-                new ComboboxItemModel() { Value = "view", Description = Resources.RANK_TARGET_VIEW },
-                new ComboboxItemModel() { Value = "res", Description = Resources.RANK_TARGET_RES },
-                new ComboboxItemModel() { Value = "mylist", Description = Resources.RANK_TARGET_MYLIST },
+                new ComboboxItemModel() { Value = "all", Description = "全ジャンル" },
+                new ComboboxItemModel() { Value = "hot_topic", Description = "話題" },
+                new ComboboxItemModel() { Value = "entertainment", Description = "エンターテイメント" },
+                new ComboboxItemModel() { Value = "radio", Description = "ラジオ" },
+                new ComboboxItemModel() { Value = "music_sound", Description = "音楽・サウンド" },
+                new ComboboxItemModel() { Value = "dance", Description = "ダンス" },
+                new ComboboxItemModel() { Value = "animal", Description = "動物" },
+                new ComboboxItemModel() { Value = "nature", Description = "自然" },
+                new ComboboxItemModel() { Value = "cooking", Description = "料理" },
+                new ComboboxItemModel() { Value = "traveling_outdoor", Description = "旅行・アウトドア" },
+                new ComboboxItemModel() { Value = "vehicle", Description = "乗り物" },
+                new ComboboxItemModel() { Value = "sports", Description = "スポーツ" },
+                new ComboboxItemModel() { Value = "society_politics_news", Description = "社会・政治・時事" },
+                new ComboboxItemModel() { Value = "technology_craft", Description = "技術・工作" },
+                new ComboboxItemModel() { Value = "commentary_lecture", Description = "解説・講座" },
+                new ComboboxItemModel() { Value = "anime", Description = "アニメ" },
+                new ComboboxItemModel() { Value = "game", Description = "ゲーム" },
+                new ComboboxItemModel() { Value = "other", Description = "その他" },
+                new ComboboxItemModel() { Value = "r18", Description = "R-18" },
             };
         }
     }
