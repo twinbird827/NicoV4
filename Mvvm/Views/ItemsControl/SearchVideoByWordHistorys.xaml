@@ -17,17 +17,17 @@
 
     </UserControl.Resources>
 
-    <ex:ListBoxEx ItemsSource="{Binding ElementName=Root, Path=DataContext}"
+    <ListBox ItemsSource="{Binding ElementName=Root, Path=DataContext}"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ScrollViewer.CanContentScroll="True"
                   VirtualizingPanel.ScrollUnit="Pixel"
                   HorizontalAlignment="Stretch">
 
-        <ex:ListBoxEx.ItemContainerStyle>
-            <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+        <ListBox.ItemContainerStyle>
+            <Style TargetType="ListBoxItem">
                 <Setter Property="behavior:ControlMouseDoubleClickBehavior.Command" Value="{Binding OnDoubleClick}" />
                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
             </Style>
-        </ex:ListBoxEx.ItemContainerStyle>
-    </ex:ListBoxEx>
+        </ListBox.ItemContainerStyle>
+    </ListBox>
 </UserControl>

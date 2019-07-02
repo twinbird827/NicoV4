@@ -96,7 +96,7 @@
 
                         <StackPanel Orientation="Horizontal">
                             <StackPanel.Resources>
-                                <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockM}">
+                                <Style TargetType="TextBlock">
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding TemporaryNewVideo}" Value="True">
                                             <Setter Property="FontWeight" Value="Bold" />
